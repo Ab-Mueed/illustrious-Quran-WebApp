@@ -11,15 +11,15 @@ import HeroSection from "./components/HeroSection";
 function App() {
   return (
     <>
-      <div style={{margin:'0 100px'}}>
+      <div style={{ margin: "0 100px" }}>
         <NavBar />
-        <Heading variant='h1'>Make Self-Purification by Reading Quran</Heading>
+        <Heading variant="h1">Make Self-Purification by Reading Quran</Heading>
         <IntroSection />
       </div>
       <SlantedDiv />
-      <div style={{margin:'0 100px'}}>
+      <div style={{ margin: "0 100px" }}>
         <HeroSection />
-        <Heading className="text" variant="h2">
+        <Heading className="text" variant="h2" margin={200}>
           Start the Journey of Enlightenment
         </Heading>
       </div>
