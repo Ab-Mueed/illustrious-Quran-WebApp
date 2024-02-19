@@ -7,6 +7,8 @@ import IntroSection from "./components/IntroSection.jsx";
 import Heading from "./components/Heading.jsx";
 import SlantedDiv from "./components/SlantedDiv.jsx";
 import HeroSection from "./components/HeroSection.jsx";
+import Cards from "./components/Cards.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Heading className="text" variant="h2" margin={200}>
           Start the Journey of Enlightenment
         </Heading>
+        <Cards/>
+        <Footer/>
       </div>
     </>
   );
