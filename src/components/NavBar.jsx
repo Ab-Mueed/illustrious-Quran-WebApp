@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Button } from "@mui/material";
+import logo from "../assets/logo.jpg";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export default function NavBar() {
@@ -16,7 +17,14 @@ export default function NavBar() {
         padding: 0.6,
       }}
     >
-      <Box>
+      <Box sx={{display:'flex'}}>
+        <img
+          src={logo}
+          alt=""
+          height="auto"
+          width="20vw"
+          style={{ marginRight: 5 }}
+        />
         <Typography variant="body1" sx={{ color: "#12372A", fontWeight: 500 }}>
           illustrious Quran
         </Typography>
