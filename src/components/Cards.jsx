@@ -12,9 +12,10 @@ export default function Cards() {
     <Box sx={{ flexGrow: 1, marginTop: 7 }}>
       <Grid container spacing={3} >
         { cardsData.map((items)=>(
-          <Grid item xs={6} sx={{position:'relative'}}>
+          <Grid item xs={6} >
             <Card 
-              sx={{ maxWidth: 550, backgroundColor: "#ADBC9F", margin: "auto", display:'flex', height:255 }}
+              sx={{ maxWidth: 550, backgroundColor: "#ADBC9F", margin: "auto", display:'flex', height:255,
+            position:'relative' }}
             >
               <CardMedia sx={{ height: 'auto', minWidth:230 }} image={items.image} title="Makkah" />
              <Box>
@@ -27,7 +28,7 @@ export default function Cards() {
                 </Typography>
               </CardContent>
               <CardActions sx={{}}>
-                <Button size="small" sx={{color:'black', position:'absolute', right:30, bottom:10}}>Learn More</Button>
+                <Button size="small" sx={{color:'black', position:'absolute', right:10, bottom:10}}>Learn More</Button>
               </CardActions>
               </Box>
             </Card>
