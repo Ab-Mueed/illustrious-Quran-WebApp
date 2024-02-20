@@ -6,13 +6,14 @@ import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import MicIcon from "@mui/icons-material/Mic";
 import Quran from "../assets/Quran.jpg";
 import Quran2 from "../assets/Quran2.jpg";
+import {themeMode} from '../App';
 
 export default function IntroSection() {
   return (
     <Box
       sx={{
         display: "flex",
-        background: "#FAF2D3",
+        background: themeMode.introBgColor,
         gap: 5,
         justifyContent: "space-between",
         alignItems: "center",
@@ -40,32 +41,34 @@ export default function IntroSection() {
         src={Quran2}
       />
       <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-        <Typography variant="body1" sx={{ color: "#12372A" }}>
+        <Typography variant="body1" sx={{ color: themeMode.paraColor  }}>
           Welcome to our Quran Reading platform, where you can embark on a
           transformative journey through the sacred text of Islam.
         </Typography>
         <Button
           variant="contained"
           disableElevation
+          className="remove-focus-outline"
           endIcon={<AutoStoriesIcon />}
-          sx={{ borderRadius: 6, width: 300, background: "#0D9276", color:'#12372A' }}
+          sx={{ borderRadius: 6, width: '15vw', background: themeMode.buttonBgColor1, color:themeMode.buttonTextColor1 }}
         >
-          Start Reading
+          Read Quran
         </Button>
         <Button
           variant="contained"
           disableElevation
+          className="remove-focus-outline"
           endIcon={<MicIcon />}
-          sx={{ borderRadius: 6, width: 300, background: "#EE9322", color:'#12372A' }}
+          sx={{ borderRadius: 6, width: '15vw', background: themeMode.buttonBgColor2, color:themeMode.buttonTextColor2 }}
         >
-          Listen Audio
+          Quran Audio
         </Button>
 
         <Box sx={{ color: "#12372A", display: "flex", direction: "row" }}>
           <Rating name="full-rating" defaultValue={5} readOnly />
-          <Typography component="legend">4.5k</Typography>
+          <Typography component="legend" sx={{color:themeMode.paraColor}}>4.5k</Typography>
         </Box>
-        <Typography variant="body1" sx={{ color: "#12372A" }}>
+        <Typography variant="body1" sx={{ color: themeMode.paraColor }}>
           100K+ ratings on Google
         </Typography>
       </Box>

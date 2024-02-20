@@ -9,12 +9,37 @@ import SlantedDiv from "./components/SlantedDiv.jsx";
 import HeroSection from "./components/HeroSection.jsx";
 import Cards from "./components/Cards.jsx";
 import Footer from "./components/Footer.jsx";
+import { useState } from "react";
+import { lightMode, darkMode } from "./util/themeScheme.js";
+
+export let themeMode = {};
 
 function App() {
+  const [activeTheme, setActiveTheme] = useState("light");
+
+  if (activeTheme === "light") {
+    themeMode = { ...lightMode };
+  } else {
+    themeMode = { ...darkMode };
+  }
+
+  function handleThemeChange() {
+    setActiveTheme((prev) => {
+      return prev === "light" ? "dark" : "light";
+    });
+  }
+
   return (
-    <>
+    <div
+      style={{
+        backgroundColor: themeMode.bodyColor,
+        padding: "0px",
+        margin: "0px",
+        overflow: "hidden",
+      }}
+    >
       <div style={{ margin: "0 90px" }}>
-        <NavBar />
+        <NavBar onClick={handleThemeChange} />
         <Heading variant="h1">Make Self-Purification by Reading Quran</Heading>
         <IntroSection />
       </div>
@@ -24,10 +49,10 @@ function App() {
         <Heading className="text" variant="h2" margin={200}>
           Start the Journey of Enlightenment
         </Heading>
-        <Cards/>
-        <Footer/>
+        <Cards />
+        <Footer />
       </div>
-    </>
+    </div>
   );
 }
 

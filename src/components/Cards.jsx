@@ -7,6 +7,8 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { cardsData } from "../util/cardsData.js";
+import {themeMode} from '../App.jsx';
+
 export default function Cards() {
   return (
     <Box sx={{ flexGrow: 1, marginTop: 7 }}>
@@ -14,21 +16,23 @@ export default function Cards() {
         { cardsData.map((items)=>(
           <Grid item xs={6} >
             <Card 
-              sx={{ maxWidth: 550, backgroundColor: "#ADBC9F", margin: "auto", display:'flex', height:255,
+              sx={{ maxWidth: 550, backgroundColor: themeMode.cardsBgColor, margin: "auto", display:'flex', height:255,
             position:'relative' }}
             >
               <CardMedia sx={{ height: 'auto', minWidth:230 }} image={items.image} title="Makkah" />
              <Box>
               <CardContent sx={{ height: 150 }}>
-                <Typography gutterBottom variant="body2" component="div" sx={{fontWeight:'bold'}}>
+                <Typography gutterBottom variant="body2" component="div" sx={{fontWeight:'bold', color: themeMode.cardsTitleColor}}>
                   {items.title}
                 </Typography>
-                <Typography variant="body2" color="#12372A">
+                <Typography variant="body2" sx={{color:themeMode.paraColor}}>
                   {items.des}
                 </Typography>
               </CardContent>
-              <CardActions sx={{}}>
-                <Button size="small" sx={{color:'black', position:'absolute', right:10, bottom:10}}>Learn More</Button>
+              <CardActions>
+                <Button size="small" 
+                className="remove-focus-outline"
+                sx={{color:themeMode.cardsButtonColor, position:'absolute', right:10, bottom:10}}>Learn More</Button>
               </CardActions>
               </Box>
             </Card>

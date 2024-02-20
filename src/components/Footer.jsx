@@ -8,14 +8,23 @@ import logo from "../assets/logo.jpg";
 import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import { themeMode } from "../App.jsx";
 
 export default function Footer() {
   return (
     <Box sx={{ flexGrow: 1, marginTop: 7, color: "#12372A" }}>
-      <Grid container sx={{backgroundColor:'#ECB159', borderRadius:2}} p={5}>
+      <Grid
+        container
+        sx={{ backgroundColor: themeMode.footerBgColor, borderRadius: 2 }}
+        p={5}
+      >
         {/* Grid-1 */}
         <Grid item xs={6} px={5}>
-          <Button variant="text" color="success">
+          <Button
+            variant="text"
+            className="remove-focus-outline"
+            sx={{ color: themeMode.footerTextColor }}
+          >
             <img
               src={logo}
               alt=""
@@ -25,21 +34,33 @@ export default function Footer() {
             />
             illustrious-Quran
           </Button>
-          <Typography variant="body1" my={1}>
+          <Typography
+            variant="body1"
+            my={1}
+            sx={{ color: themeMode.footerTextColor }}
+          >
             An AI enriched Quran experience, where you can embark on a
             transformative journey throught the text of Islam.
           </Typography>
-          <Stack direction='row' spacing={2}>
-            <Button variant="outlined" startIcon={<GoogleIcon />} sx={{color:'black', borderColor:'black'}}>
+          <Stack direction="row" spacing={2}>
+            <Button
+              variant="outlined"
+              startIcon={<GoogleIcon sx={{ color: "#999" }} />}
+              sx={{ color: themeMode.footerTextColor, borderColor: "black" }}
+            >
               Get it on <br /> Google Play
             </Button>
-            <Button variant="outlined" startIcon={<AppleIcon />} sx={{color:'black', borderColor:'black'}}>
+            <Button
+              variant="outlined"
+              startIcon={<AppleIcon sx={{ color: "#999" }} />}
+              sx={{ color: themeMode.footerTextColor, borderColor: "black" }}
+            >
               Get it on <br /> App Store
             </Button>
           </Stack>
         </Grid>
         {/* Grid-2 */}
-        <Grid item xs={2}>
+        <Grid item xs={2} sx={{ color: themeMode.footerTextColor }}>
           <Stack>
             <Typography variant="body1" sx={{ fontWeight: "bold" }}>
               Navigation
@@ -55,7 +76,7 @@ export default function Footer() {
           </Stack>
         </Grid>
         {/* Grid-3 */}
-        <Grid item xs={2}>
+        <Grid item xs={2} sx={{ color: themeMode.footerTextColor }}>
           <Stack>
             <Typography variant="body1" sx={{ fontWeight: "bold" }}>
               Popular Link{" "}
@@ -68,7 +89,7 @@ export default function Footer() {
           </Stack>
         </Grid>
         {/* Grid-4 */}
-        <Grid item xs={2}>
+        <Grid item xs={2} sx={{ color: themeMode.footerTextColor }}>
           <Stack>
             <Typography variant="body1" sx={{ fontWeight: "bold" }}>
               Company{" "}
@@ -81,7 +102,7 @@ export default function Footer() {
         </Grid>
       </Grid>
 
-      <Divider sx={{my:1}} />
+      <Divider sx={{ my: 1 }} />
 
       <Grid
         container
@@ -90,12 +111,22 @@ export default function Footer() {
         mb={2}
       >
         <Grid item xs={4}>
-          <Typography variant="body1" sx={{ fontSize: 12 }}>
+          <Typography
+            variant="body1"
+            sx={{ fontSize: 12, color: themeMode.copyRightTextColor }}
+          >
             Copyright &copy; 2024 Abdul Mueed | Hamzah Kamili | Hassan Qari
           </Typography>
         </Grid>
         <Grid item xs={4}>
-          <Box sx={{ display: "flex", gap: 4, justifyContent: "center" }}>
+          <Box
+            sx={{
+              display: "flex",
+              gap: 4,
+              justifyContent: "center",
+              color: themeMode.copyRightTextColor,
+            }}
+          >
             <Typography variant="body1" sx={{ fontSize: 12 }}>
               Terms
             </Typography>
@@ -108,7 +139,7 @@ export default function Footer() {
           </Box>
         </Grid>
         <Grid item xs={4} sx={{ display: "flex", justifyContent: "end" }}>
-          <GitHubIcon />
+          <GitHubIcon sx={{ color: themeMode.githubIconColor }} />
         </Grid>
       </Grid>
     </Box>
