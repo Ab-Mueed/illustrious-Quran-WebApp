@@ -1,6 +1,6 @@
 import { Box, Typography, Button } from "@mui/material";
-import Quran3 from "../assets/Quran3.jpg";
-import {themeMode} from '../App';
+import Quran3 from "../../assets/Quran3.jpg";
+import {themeMode} from '../../App';
 
 export default function HeroSection() {
   return (

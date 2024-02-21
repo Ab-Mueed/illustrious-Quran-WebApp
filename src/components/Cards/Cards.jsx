@@ -6,8 +6,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import { cardsData } from "../util/cardsData.js";
-import {themeMode} from '../App.jsx';
+import { cardsData } from "../../util/cardsData.js";
+import {themeMode} from '../../App.jsx';
 
 export default function Cards() {
   return (

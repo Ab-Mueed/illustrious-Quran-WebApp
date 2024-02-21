@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { themeMode } from "../App";
+import { themeMode } from "../../App";
 export default function SlantedDiv() {
   return (
     <>

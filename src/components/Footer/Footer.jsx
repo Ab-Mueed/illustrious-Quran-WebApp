@@ -4,11 +4,11 @@ import { Box, IconButton } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
-import logo from "../assets/logo.jpg";
+import logo from "../../assets/logo.jpg";
 import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { themeMode } from "../App.jsx";
+import { themeMode } from "../../App.jsx";
 
 export default function Footer() {
   return (

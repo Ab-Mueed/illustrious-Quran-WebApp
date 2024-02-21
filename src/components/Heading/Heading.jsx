@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/material";
-import { themeMode } from "../App.jsx";
+import { themeMode } from "../../App.jsx";
 
 export default function Heading({ children, variant, margin, ...props }) {
   return (

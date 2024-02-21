@@ -1,11 +1,11 @@
 import { Box } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Button } from "@mui/material";
-import logo from "../assets/logo.jpg";
+import logo from "../../assets/logo.jpg";
 import Stack from "@mui/material/Stack";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ColorLensRoundedIcon from "@mui/icons-material/ColorLensRounded";
-import {themeMode} from '../App';
+import { themeMode } from "../../App";
 
 export default function NavBar({ onClick }) {
   return (

@@ -4,9 +4,9 @@ import { Button } from "@mui/material";
 import Rating from "@mui/material/Rating";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import MicIcon from "@mui/icons-material/Mic";
-import Quran from "../assets/Quran.jpg";
-import Quran2 from "../assets/Quran2.jpg";
-import {themeMode} from '../App';
+import Quran from "../../assets/Quran.jpg";
+import Quran2 from "../../assets/Quran2.jpg";
+import {themeMode} from '../../App';
 
 export default function IntroSection() {
   return (
