@@ -2,21 +2,21 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import NavBar from "./components/NavBar/NavBar.jsx";
-import IntroSection from "./components/IntroSection/IntroSection.jsx";
-import Heading from "./components/Heading/Heading.jsx";
-import SlantedDiv from "./components/SlantedDiv/SlantedDiv.jsx";
-import HeroSection from "./components/HeroSection/HeroSection.jsx";
-import Cards from "./components/Cards/Cards.jsx";
-import Footer from "./components/Footer/Footer.jsx";
+import NavBar from "../components/NavBar/NavBar.jsx";
+import IntroSection from "../components/IntroSection/IntroSection.jsx";
+import Heading from "../components/Heading/Heading.jsx";
+import SlantedDiv from "../components/SlantedDiv/SlantedDiv.jsx";
+import HeroSection from "../components/HeroSection/HeroSection.jsx";
+import Cards from "../components/Cards/Cards.jsx";
+import Footer from "../components/Footer/Footer.jsx";
 import {Box} from '@mui/material';
 import { useState } from "react";
-import { lightMode, darkMode } from "./util/themeScheme.js";
-import {Root} from './app.style.js';
+import { lightMode, darkMode } from "../util/themeScheme.js";
+import {Root} from './home.style.js';
 
 export let themeMode = {};
 
-function App() {
+function Home() {
   const [activeTheme, setActiveTheme] = useState("light");
 
   if (activeTheme === "light") {
@@ -58,4 +58,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

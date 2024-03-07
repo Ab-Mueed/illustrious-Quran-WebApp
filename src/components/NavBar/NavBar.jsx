@@ -5,22 +5,14 @@ import logo from "../../assets/logo.jpg";
 import Stack from "@mui/material/Stack";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ColorLensRoundedIcon from "@mui/icons-material/ColorLensRounded";
-import { themeMode } from "../../App";
+import { themeMode } from "../../pages/Home.jsx";
+import {Root,FirstBox, SecondBox, ThirdBox} from './navbar.style.js';
+import { Link } from "react-router-dom";
 
 export default function NavBar({ onClick }) {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        gap: 2,
-        // background: "#FAF2D3",
-        height: "4rem",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: 0.6,
-      }}
-    >
-      <Box sx={{ display: "flex" }}>
+    <Root>
+      <FirstBox sx={{ display: "flex" }}>
         <img
           src={logo}
           alt=""
@@ -34,9 +26,10 @@ export default function NavBar({ onClick }) {
         >
           illustrious Quran
         </Typography>
-      </Box>
+      </FirstBox>
 
-      <Box sx={{ display: "flex", gap: 2 }}>
+      <SecondBox sx={{ display: "flex", gap: 2 }}>
+        <Link to='/'>
         <Button
           variant="text"
           disableElevation
@@ -45,6 +38,8 @@ export default function NavBar({ onClick }) {
         >
           Home
         </Button>
+        </Link>
+        <Link to='/Quran'>
         <Button
           variant="text"
           disableElevation
@@ -53,6 +48,7 @@ export default function NavBar({ onClick }) {
         >
           Quran
         </Button>
+        </Link>
         <Button
           variant="text"
           disableElevation
@@ -85,9 +81,9 @@ export default function NavBar({ onClick }) {
         >
           AI<sup>Beta</sup>
         </Button>
-      </Box>
+      </SecondBox>
 
-      <Box>
+      <ThirdBox>
         <Stack direction="row" spacing={1}>
           <Button
             variant="text"
@@ -110,7 +106,7 @@ export default function NavBar({ onClick }) {
             sx={{ color: themeMode.navBarTextColor }}
           ></Button>
         </Stack>
-      </Box>
-    </Box>
+      </ThirdBox>
+    </Root>
   );
 }

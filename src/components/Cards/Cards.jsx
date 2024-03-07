@@ -7,27 +7,27 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { cardsData } from "../../util/cardsData.js";
-import {themeMode} from '../../App.jsx';
+import {themeMode} from '../../pages/Home.jsx';
+import {Root,GridItem, CustomCard, CustomCardMedia, CustomTitleTypography, CustomDescriptionTypography} from './cards.style.js';
 
 export default function Cards() {
   return (
-    <Box sx={{ flexGrow: 1, marginTop: 7 }}>
-      <Grid container spacing={3} >
+    <Root>
+      <Grid container spacing={2} >
         { cardsData.map((items)=>(
-          <Grid item xs={6} >
-            <Card 
-              sx={{ maxWidth: 550, backgroundColor: themeMode.cardsBgColor, margin: "auto", display:'flex', height:255,
-            position:'relative' }}
+          <GridItem item xs={12} lg={6}>
+            <CustomCard 
+              sx={{  height:255 }}
             >
-              <CardMedia sx={{ height: 'auto', minWidth:230 }} image={items.image} title="Makkah" />
+              <CustomCardMedia  image={items.image} title="Makkah" />
              <Box>
               <CardContent sx={{ height: 150 }}>
-                <Typography gutterBottom variant="body2" component="div" sx={{fontWeight:'bold', color: themeMode.cardsTitleColor}}>
+                <CustomTitleTypography gutterBottom variant="body2" component="div">
                   {items.title}
-                </Typography>
-                <Typography variant="body2" sx={{color:themeMode.paraColor}}>
+                </CustomTitleTypography>
+                <CustomDescriptionTypography variant="body2" sx={{color:themeMode.paraColor}}>
                   {items.des}
-                </Typography>
+                </CustomDescriptionTypography>
               </CardContent>
               <CardActions>
                 <Button size="small" 
@@ -35,12 +35,12 @@ export default function Cards() {
                 sx={{color:themeMode.cardsButtonColor, position:'absolute', right:10, bottom:10}}>Learn More</Button>
               </CardActions>
               </Box>
-            </Card>
-          </Grid>
+            </CustomCard>
+          </GridItem>
         ))
           
         }
       </Grid>
-    </Box>
+    </Root>
   );
 }

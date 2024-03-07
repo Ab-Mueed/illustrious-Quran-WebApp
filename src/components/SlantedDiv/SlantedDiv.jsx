@@ -1,36 +1,21 @@
 import { Box, Typography } from "@mui/material";
-import { themeMode } from "../../App";
+import { themeMode } from "../../pages/Home";
+import { Root, FirstSlant, SecondSlant, CustomTypography } from "./slantedDiv.style";
 export default function SlantedDiv() {
   return (
     <>
-      <Box sx={{ width: "100vw", position: "relative" }}>
-        <Box
+      <Root>
+        <FirstSlant
           className="first-slant"
           sx={{ backgroundColor: themeMode.firstSlantColor }}
-        ></Box>
-        <Box
-          className="second-slant"
-          sx={{
-            alignItems: "center",
-            backgroundColor: themeMode.secondSlantColor,
-          }}
-          pt={1}
-        >
-          <Typography
-            variant="body1"
-            sx={{
-              color: themeMode.slantTextColor,
-              fontSize: "1.7vw",
-              paddingTop: 1,
-              fontWeight: 500,
-              textAlign: "center",
-            }}
-          >
+        ></FirstSlant>
+        <SecondSlant className="second-slant" pt={1}>
+          <CustomTypography variant="body1">
             “Allah does not burden a soul beyond that it can bear…” (Al-Baqarah,
             2:286)
-          </Typography>
-        </Box>
-      </Box>
+          </CustomTypography>
+        </SecondSlant>
+      </Root>
     </>
   );
 }

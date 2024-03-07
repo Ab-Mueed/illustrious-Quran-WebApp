@@ -8,22 +8,24 @@ import logo from "../../assets/logo.jpg";
 import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { themeMode } from "../../App.jsx";
+import { themeMode } from "../../pages/Home.jsx";
+import {GridContainer, GridItem, Root, CustomButton, SecondGridContainer, SecondGridItem, ThirdGridItem, CopyRightTypography, FirstBox, CustomTypography} from './footer.style.js';
 
 export default function Footer() {
   return (
-    <Box sx={{ flexGrow: 1, marginTop: 7, color: "#12372A" }}>
-      <Grid
+    <Root sx={{ flexGrow: 1, marginTop: 7, color: "#12372A" }}>
+      <GridContainer
         container
-        sx={{ backgroundColor: themeMode.footerBgColor, borderRadius: 2 }}
-        p={5}
+        sx={{  }}
+        spacing={{xs:2}}
+        // p={5}
       >
         {/* Grid-1 */}
-        <Grid item xs={6} px={5}>
+        <GridItem item xs={12} >
           <Button
             variant="text"
             className="remove-focus-outline"
-            sx={{ color: themeMode.footerTextColor }}
+            sx={{  }}
           >
             <img
               src={logo}
@@ -34,114 +36,107 @@ export default function Footer() {
             />
             illustrious-Quran
           </Button>
-          <Typography
+          <CustomTypography
             variant="body1"
             my={1}
             sx={{ color: themeMode.footerTextColor }}
           >
             An AI enriched Quran experience, where you can embark on a
             transformative journey throught the text of Islam.
-          </Typography>
+          </CustomTypography>
           <Stack direction="row" spacing={2}>
-            <Button
+            <CustomButton
               variant="outlined"
               startIcon={<GoogleIcon sx={{ color: "#999" }} />}
-              sx={{ color: themeMode.footerTextColor, borderColor: "black" }}
+              sx={{}}
             >
               Get it on <br /> Google Play
-            </Button>
-            <Button
+            </CustomButton>
+            <CustomButton
               variant="outlined"
               startIcon={<AppleIcon sx={{ color: "#999" }} />}
-              sx={{ color: themeMode.footerTextColor, borderColor: "black" }}
+              sx={{}}
             >
               Get it on <br /> App Store
-            </Button>
+            </CustomButton>
           </Stack>
-        </Grid>
+        </GridItem>
         {/* Grid-2 */}
-        <Grid item xs={2} sx={{ color: themeMode.footerTextColor }}>
+        <GridItem item xs={12}>
           <Stack>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+            <CustomTypography variant="body1" sx={{ fontWeight: "bold" }}>
               Navigation
-            </Typography>
-            <Typography variant="body1">Home</Typography>
-            <Typography variant="body1">Quran</Typography>
-            <Typography variant="body1">Hadith</Typography>
-            <Typography variant="body1">Tafsir</Typography>
-            <Typography variant="body1">Translations</Typography>
-            <Typography variant="body1">
+            </CustomTypography>
+            <CustomTypography variant="body1">Home</CustomTypography>
+            <CustomTypography variant="body1">Quran</CustomTypography>
+            <CustomTypography variant="body1">Hadith</CustomTypography>
+            <CustomTypography variant="body1">Tafsir</CustomTypography>
+            <CustomTypography variant="body1">Translations</CustomTypography>
+            <CustomTypography variant="body1">
               AI <sup>Beta</sup>
-            </Typography>
+            </CustomTypography>
           </Stack>
-        </Grid>
+        </GridItem>
         {/* Grid-3 */}
-        <Grid item xs={2} sx={{ color: themeMode.footerTextColor }}>
+        <GridItem item xs={12} sx={{ color: themeMode.footerTextColor }}>
           <Stack>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              Popular Link{" "}
-            </Typography>
-            <Typography variant="body1">Ayatul Kursi</Typography>
-            <Typography variant="body1">Yaseen</Typography>
-            <Typography variant="body1">Ar-Rahman</Typography>
-            <Typography variant="body1">Al Mulk</Typography>
-            <Typography variant="body1">Al Muzzammil</Typography>
+            <CustomTypography variant="body1" sx={{ fontWeight: "bold" }}>
+              Popular Link
+            </CustomTypography>
+            <CustomTypography variant="body1">Ayatul Kursi</CustomTypography>
+            <CustomTypography variant="body1">Yaseen</CustomTypography>
+            <CustomTypography variant="body1">Ar-Rahman</CustomTypography>
+            <CustomTypography variant="body1">Al Mulk</CustomTypography>
+            <CustomTypography variant="body1">Al Muzzammil</CustomTypography>
           </Stack>
-        </Grid>
+        </GridItem>
         {/* Grid-4 */}
-        <Grid item xs={2} sx={{ color: themeMode.footerTextColor }}>
+        <GridItem item xs={12} sx={{ color: themeMode.footerTextColor }}>
           <Stack>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              Company{" "}
-            </Typography>
-            <Typography variant="body1">FAQ</Typography>
-            <Typography variant="body1">About Us</Typography>
-            <Typography variant="body1">Contact Us</Typography>
-            <Typography variant="body1">Terms & Conditions</Typography>
+            <CustomTypography variant="body1" sx={{ fontWeight: "bold" }}>
+              Company
+            </CustomTypography>
+            <CustomTypography variant="body1">FAQ</CustomTypography>
+            <CustomTypography variant="body1">About Us</CustomTypography>
+            <CustomTypography variant="body1">Contact Us</CustomTypography>
+            <CustomTypography variant="body1">Terms & Conditions</CustomTypography>
           </Stack>
-        </Grid>
-      </Grid>
+        </GridItem>
+      </GridContainer>
 
-      <Divider sx={{ my: 1 }} />
+      <Divider sx={{ my: 3 }} />
 
-      <Grid
+      <SecondGridContainer
         container
         spacing={1}
-        sx={{ mt: 1, display: "flex", alignItems: "center" }}
-        mb={2}
+        my={{xs:1}}
       >
-        <Grid item xs={4}>
-          <Typography
+        <SecondGridItem item xs={4}>
+          <CopyRightTypography
             variant="body1"
-            sx={{ fontSize: 12, color: themeMode.copyRightTextColor }}
+            sx={{ }}
           >
             Copyright &copy; 2024 Abdul Mueed | Hamzah Kamili | Hassan Qari
-          </Typography>
-        </Grid>
-        <Grid item xs={4}>
-          <Box
-            sx={{
-              display: "flex",
-              gap: 4,
-              justifyContent: "center",
-              color: themeMode.copyRightTextColor,
-            }}
+          </CopyRightTypography>
+        </SecondGridItem>
+        <SecondGridItem item xs={4}>
+          <FirstBox
           >
-            <Typography variant="body1" sx={{ fontSize: 12 }}>
+            <CopyRightTypography variant="body1" sx={{ }}>
               Terms
-            </Typography>
-            <Typography variant="body1" sx={{ fontSize: 12 }}>
+            </CopyRightTypography>
+            <CopyRightTypography variant="body1" sx={{ }}>
               Legal
-            </Typography>
-            <Typography variant="body1" sx={{ fontSize: 12 }}>
+            </CopyRightTypography>
+            <CopyRightTypography variant="body1" sx={{ }}>
               Privacy
-            </Typography>
-          </Box>
-        </Grid>
-        <Grid item xs={4} sx={{ display: "flex", justifyContent: "end" }}>
-          <GitHubIcon sx={{ color: themeMode.githubIconColor }} />
-        </Grid>
-      </Grid>
-    </Box>
+            </CopyRightTypography>
+          </FirstBox>
+        </SecondGridItem>
+        <ThirdGridItem item xs={4}>
+          <GitHubIcon sx={{ color: themeMode.githubIconColor }}/>
+        </ThirdGridItem>
+      </SecondGridContainer>
+    </Root>
   );
 }
