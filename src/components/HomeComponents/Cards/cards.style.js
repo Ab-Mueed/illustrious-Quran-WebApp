@@ -1,6 +1,6 @@
-import { Box, Card, Grid, Typography } from "@mui/material";
+import { Box, Card, CardMedia, Grid, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { themeMode } from "../../pages/Home";
+import {themeMode} from '../../../pages/Root.jsx';
 
 export const Root = styled(Box)(({ theme }) => ({
   marginTop: 30,
@@ -38,7 +38,7 @@ export const CustomCard = styled(Card)(({ theme }) => ({
   [theme.breakpoints.up("xl")]: {maxWidth:'40vw'},
 }));
 
-export const CustomCardMedia = styled(Card)(({ theme }) => ({
+export const CustomCardMedia = styled(CardMedia)(({ theme }) => ({
     [theme.breakpoints.down("sm")]: {height:0, minWidth:0},
     [theme.breakpoints.up("sm")]: {height:0, minWidth:0},
     [theme.breakpoints.up("md")]: {height:'auto', minWidth:230},
@@ -56,7 +56,7 @@ export const CustomCardMedia = styled(Card)(({ theme }) => ({
   export const CustomDescriptionTypography = styled(Typography)(({ theme }) => ({
     color:themeMode.paraColor,
     [theme.breakpoints.down("sm")]: {fontSize:'0.8rem'},
-    [theme.breakpoints.up("sm")]: {fontSize:'1.4rem'},
+    [theme.breakpoints.up("sm")]: {fontSize:'1rem'},
     [theme.breakpoints.up("md")]: {},
     [theme.breakpoints.up("lg")]: {},
   }));

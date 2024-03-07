@@ -5,11 +5,13 @@ import logo from "../../assets/logo.jpg";
 import Stack from "@mui/material/Stack";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ColorLensRoundedIcon from "@mui/icons-material/ColorLensRounded";
-import { themeMode } from "../../pages/Home.jsx";
+import { themeMode } from "../../pages/Root.jsx";
 import {Root,FirstBox, SecondBox, ThirdBox} from './navbar.style.js';
 import { Link } from "react-router-dom";
 
 export default function NavBar({ onClick }) {
+  console.log("In Navabr Page");
+
   return (
     <Root>
       <FirstBox sx={{ display: "flex" }}>

@@ -6,20 +6,22 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import { cardsData } from "../../util/cardsData.js";
-import {themeMode} from '../../pages/Home.jsx';
+import { cardsData } from "../../../util/cardsData.js"
+import {themeMode} from '../../../pages/Root.jsx';
 import {Root,GridItem, CustomCard, CustomCardMedia, CustomTitleTypography, CustomDescriptionTypography} from './cards.style.js';
+import img from '../../../assets/card1.jpg'
 
 export default function Cards() {
   return (
     <Root>
-      <Grid container spacing={2} >
-        { cardsData.map((items)=>(
-          <GridItem item xs={12} lg={6}>
+      <Grid container spacing={2}>
+        { cardsData.map((items, index)=>(
+          <GridItem key={index} item xs={12} lg={6}>
             <CustomCard 
               sx={{  height:255 }}
             >
-              <CustomCardMedia  image={items.image} title="Makkah" />
+              <CustomCardMedia image={items.image} title="Makkah" />
+
              <Box>
               <CardContent sx={{ height: 150 }}>
                 <CustomTitleTypography gutterBottom variant="body2" component="div">

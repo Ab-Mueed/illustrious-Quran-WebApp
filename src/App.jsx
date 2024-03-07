@@ -2,59 +2,42 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import NavBar from "./components/NavBar/NavBar.jsx";
-import IntroSection from "./components/IntroSection/IntroSection.jsx";
-import Heading from "./components/Heading/Heading.jsx";
-import SlantedDiv from "./components/SlantedDiv/SlantedDiv.jsx";
-import HeroSection from "./components/HeroSection/HeroSection.jsx";
-import Cards from "./components/Cards/Cards.jsx";
-import Footer from "./components/Footer/Footer.jsx";
-import {Box} from '@mui/material';
-import { useState } from "react";
-import { lightMode, darkMode } from "./util/themeScheme.js";
-import {Root} from './app.style.js';
+import Home from "./pages/Home.jsx";
+import Quran from "./pages/Quran.jsx";
+import Root from "./pages/Root"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export let themeMode = {};
 
 function App() {
-  const [activeTheme, setActiveTheme] = useState("light");
+  const [currentState, setCurrentState] = useState(false);
 
-  if (activeTheme === "light") {
-    themeMode = { ...lightMode };
-  } else {
-    themeMode = { ...darkMode };
-  }
-
-  function handleThemeChange() {
-    setActiveTheme((prev) => {
-      return prev === "light" ? "dark" : "light";
-    });
-  }
+  const onHit = () => {
+    setCurrentState(prev => !prev);
+  };
+  
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root onHit={onHit}/>,
+    children: [
+      {
+        path: "/",
+        element: <Home/>,
+      },
+      {
+        path: "/Quran",
+        element: <Quran />,
+      },
+    ],
+  },
+]);
 
   return (
-    <div
-      style={{
-        backgroundColor: themeMode.bodyColor,
-        padding: "0px",
-        margin: "0px",
-        overflow: "hidden",
-      }}
-    >
-      <Root>
-        <NavBar onClick={handleThemeChange} />
-        <Heading variant="h1">Make Self-Purification by Reading Quran</Heading>
-        <IntroSection />
-      </Root>
-      <SlantedDiv />
-      <Root>
-        <HeroSection />
-        <Heading className="text" variant="h2" margin={0}>
-          Start the Journey of Enlightenment
-        </Heading>
-        <Cards />
-        <Footer />
-      </Root>
-    </div>
+    <>
+       <RouterProvider router={router} />
+    </>
   );
 }
 

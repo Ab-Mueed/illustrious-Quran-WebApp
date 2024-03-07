@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { themeMode } from "../../pages/Home";
+import {themeMode} from '../../../pages/Root.jsx';
 import { Root, FirstSlant, SecondSlant, CustomTypography } from "./slantedDiv.style";
 export default function SlantedDiv() {
   return (

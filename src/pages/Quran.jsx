@@ -4,16 +4,14 @@ import { Box, Button, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Divider from '@mui/material/Divider';
 
-
 const tempArray = [1, 2, 3, 4, 5, 6];
 
 function Quran({ props }) {
   return (
     <>
-      <NavBar />
-
       <Box sx={{ }}>
         <Grid
+          mt={2}
           container
           spacing={1}
           gap={10}
@@ -62,25 +60,7 @@ function Quran({ props }) {
                   ))
             }
           </Grid>
-
-         
-          {/* <Grid item xs={12}>
-              <Button variant="text" sx={{width:'100%', border:2, borderColor:'white'}}>
-                <Box sx={{display:'flex', gap:4}}>
-                    
-                  <Typography variant="body1">1</Typography>
-                
-                
-                  <Typography variant="body1">Al-Baqarah</Typography>
-                  
-                
-                  <Typography variant="body1">البقرة</Typography>
-                  
-                </Box>
-              </Button>
-            </Grid> */}
-
-         
+     
         </Grid>
       </Box>
     </>

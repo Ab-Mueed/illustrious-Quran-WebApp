@@ -1,6 +1,6 @@
 import { Box, Typography, Button } from "@mui/material";
-import Quran3 from "../../assets/Quran3.jpg";
-import { themeMode } from "../../pages/Home";
+import Quran3 from "../../../assets/Quran3.jpg";
+import {themeMode} from '../../../pages/Root.jsx';
 import {
   FirstImageBox,
   CustomTypography,

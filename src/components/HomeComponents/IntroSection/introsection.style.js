@@ -1,16 +1,15 @@
 import { Box, Button, Card, Grid, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { themeMode } from "../../pages/Home";
+import {themeMode} from '../../../pages/Root.jsx';
 
 export const Root = styled(Box)(({ theme }) => ({
   display: "flex",
   background: themeMode.introBgColor,
   gap: 10,
   justifyContent: "space-between",
-  flexWrap: "wrap",
   alignItems: "center",
   padding: 2,
-  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("sm")]: {flexWrap: "wrap",},
   [theme.breakpoints.up("sm")]: {},
   [theme.breakpoints.up("md")]: {},
   [theme.breakpoints.up("lg")]: {},
@@ -18,6 +17,7 @@ export const Root = styled(Box)(({ theme }) => ({
 
 export const FirstImageBox = styled(Box)(({ theme }) => ({
   borderRadius: 6,
+  width: "50%",
   [theme.breakpoints.down("sm")]: {
     width: "95%",
     height: "50vh",
@@ -30,6 +30,7 @@ export const FirstImageBox = styled(Box)(({ theme }) => ({
 
 export const SecondImageBox = styled(Box)(({ theme }) => ({
   borderRadius: 6,
+  width: "50%",
   [theme.breakpoints.down("sm")]: { display: "none" },
   [theme.breakpoints.up("sm")]: {},
   [theme.breakpoints.up("md")]: {},

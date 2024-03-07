@@ -1,6 +1,6 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { themeMode } from "../../pages/Home";
+import { themeMode } from "../../pages/Root";
 
 export const Root = styled(Box)(({ theme }) => ({
   display: "flex",

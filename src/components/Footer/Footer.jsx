@@ -8,7 +8,7 @@ import logo from "../../assets/logo.jpg";
 import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { themeMode } from "../../pages/Home.jsx";
+import { themeMode } from "../../pages/Root.jsx";
 import {GridContainer, GridItem, Root, CustomButton, SecondGridContainer, SecondGridItem, ThirdGridItem, CopyRightTypography, FirstBox, CustomTypography} from './footer.style.js';
 
 export default function Footer() {

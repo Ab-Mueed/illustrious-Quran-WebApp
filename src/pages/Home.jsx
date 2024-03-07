@@ -3,33 +3,37 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import NavBar from "../components/NavBar/NavBar.jsx";
-import IntroSection from "../components/IntroSection/IntroSection.jsx";
-import Heading from "../components/Heading/Heading.jsx";
-import SlantedDiv from "../components/SlantedDiv/SlantedDiv.jsx";
-import HeroSection from "../components/HeroSection/HeroSection.jsx";
-import Cards from "../components/Cards/Cards.jsx";
+import IntroSection from "../components/HomeComponents/IntroSection/IntroSection.jsx";
+import Heading from "../components/HomeComponents/Heading/Heading.jsx";
+import SlantedDiv from "../components/HomeComponents/SlantedDiv/SlantedDiv.jsx";
+import HeroSection from "../components/HomeComponents/HeroSection/HeroSection.jsx";
+import Cards from "../components/HomeComponents/Cards/Cards.jsx";
 import Footer from "../components/Footer/Footer.jsx";
 import {Box} from '@mui/material';
-import { useState } from "react";
-import { lightMode, darkMode } from "../util/themeScheme.js";
+import { useEffect, useState } from "react";
+// import { lightMode, darkMode } from "../util/themeScheme.js";
 import {Root} from './home.style.js';
+import {themeMode} from './Root.jsx';
 
-export let themeMode = {};
+// export let themeMode = {};
 
 function Home() {
-  const [activeTheme, setActiveTheme] = useState("light");
+  console.log("In Home Page");
 
-  if (activeTheme === "light") {
-    themeMode = { ...lightMode };
-  } else {
-    themeMode = { ...darkMode };
-  }
+ 
+  // const [activeTheme, setActiveTheme] = useState("light");
 
-  function handleThemeChange() {
-    setActiveTheme((prev) => {
-      return prev === "light" ? "dark" : "light";
-    });
-  }
+  // if (activeTheme === "light") {
+  //   themeMode = { ...lightMode };
+  // } else {
+  //   themeMode = { ...darkMode };
+  // }
+
+  // function handleThemeChange() {
+  //   setActiveTheme((prev) => {
+  //     return prev === "light" ? "dark" : "light";
+  //   });
+  // }
 
   return (
     <div
@@ -41,7 +45,7 @@ function Home() {
       }}
     >
       <Root>
-        <NavBar onClick={handleThemeChange} />
+        {/* <NavBar onClick={handleThemeChange} /> */}
         <Heading variant="h1">Make Self-Purification by Reading Quran</Heading>
         <IntroSection />
       </Root>

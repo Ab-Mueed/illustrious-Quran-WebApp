@@ -1,15 +1,16 @@
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { themeMode } from "../../pages/Home";
+import { themeMode } from "../../pages/Root";
+
 
 export const Root = styled(Box)(({ theme }) => ({
   display: "flex",
   gap: 2,
-  // background: "#FAF2D3",
+  backgroundColor: themeMode.bodyColor,
   height: "4rem",
   justifyContent: "space-between",
   alignItems: "center",
-  padding: 0.6,
+  padding: "10px 100px",
   [theme.breakpoints.down("sm")]: { width: "100%" },
   [theme.breakpoints.up("sm")]: {},
   [theme.breakpoints.up("md")]: {},

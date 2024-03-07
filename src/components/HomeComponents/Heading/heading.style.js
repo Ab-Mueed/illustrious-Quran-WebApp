@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { themeMode } from "../../pages/Home";
+import {themeMode} from '../../../pages/Root.jsx';
 
 export const Root = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down("sm")]: {width:'100%', marginBottom:4},
@@ -10,9 +10,11 @@ export const Root = styled(Box)(({ theme }) => ({
   }));
 
 export const CustomTypography = styled(Typography)(({ theme }) => ({
-    color: themeMode.headingColor, fontWeight: "bold",
+    color: themeMode.headingColor, 
+    
+    fontWeight: "bold",
     [theme.breakpoints.down("sm")]: {fontSize:'2rem', paddingLeft:10},
     [theme.breakpoints.up("sm")]: {},
     [theme.breakpoints.down("md")]: {},
     [theme.breakpoints.up("lg")]: {},
-  }));
+}));

@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { themeMode } from "../../pages/Home";
+import {themeMode} from '../../../pages/Root.jsx';
 
 export const Root = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {},
@@ -11,6 +11,7 @@ export const Root = styled(Box)(({ theme }) => ({
 
 export const FirstImageBox = styled(Box)(({ theme }) => ({
     borderRadius: 6,
+    width: "100%",
     [theme.breakpoints.down("sm")]: {
       width: "95%",
       height: "50vh",

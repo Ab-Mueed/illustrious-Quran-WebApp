@@ -1,6 +1,6 @@
 import { Box,Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { themeMode } from "../../pages/Home";
+import {themeMode} from '../../../pages/Root.jsx';
 
 export const Root = styled(Box)(({ theme }) => ({
   width: "100vw",
