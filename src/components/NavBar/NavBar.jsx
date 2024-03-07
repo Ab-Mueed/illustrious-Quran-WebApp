@@ -8,9 +8,19 @@ import ColorLensRoundedIcon from "@mui/icons-material/ColorLensRounded";
 import { themeMode } from "../../pages/Root.jsx";
 import {Root,FirstBox, SecondBox, ThirdBox} from './navbar.style.js';
 import { Link } from "react-router-dom";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { useState } from "react";
 
 export default function NavBar({ onClick }) {
-  console.log("In Navabr Page");
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <Root>
@@ -31,25 +41,25 @@ export default function NavBar({ onClick }) {
       </FirstBox>
 
       <SecondBox sx={{ display: "flex", gap: 2 }}>
-        <Link to='/'>
-        <Button
-          variant="text"
-          disableElevation
-          id="button"
-          sx={{ color: themeMode.navBarTextColor }}
-        >
-          Home
-        </Button>
+        <Link to="/">
+          <Button
+            variant="text"
+            disableElevation
+            id="button"
+            sx={{ color: themeMode.navBarTextColor }}
+          >
+            Home
+          </Button>
         </Link>
-        <Link to='/Quran'>
-        <Button
-          variant="text"
-          disableElevation
-          id="button"
-          sx={{ color: themeMode.navBarTextColor }}
-        >
-          Quran
-        </Button>
+        <Link to="/Quran">
+          <Button
+            variant="text"
+            disableElevation
+            id="button"
+            sx={{ color: themeMode.navBarTextColor }}
+          >
+            Quran
+          </Button>
         </Link>
         <Button
           variant="text"
@@ -87,16 +97,47 @@ export default function NavBar({ onClick }) {
 
       <ThirdBox>
         <Stack direction="row" spacing={1}>
-          <Button
-            variant="text"
-            size="small"
-            startIcon={<AccountCircleIcon />}
-            className="remove-focus-outline"
-            disableElevation
-            sx={{ color: themeMode.navBarTextColor }}
-          >
-            Account
-          </Button>
+          <div>
+            <Button
+              aria-controls={open ? "basic-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClick}
+              variant="text"
+              size="small"
+              startIcon={<AccountCircleIcon />}
+              className="remove-focus-outline"
+              disableElevation
+              sx={{ color: themeMode.navBarTextColor }}
+            >
+              Account
+            </Button>
+
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+            >
+              <Box>
+                <Typography varaint="h6">Sign in To Your Account</Typography>
+
+                <form action="">
+                  <div>
+                    <label htmlFor="">Email</label>
+                    <input type="email" />
+                  </div>
+                  <div>
+                    <label htmlFor="password">Password</label>
+                    <input type="password" />
+                  </div>
+                </form>
+              </Box>
+            </Menu>
+          </div>
 
           <Button
             variant="text"
