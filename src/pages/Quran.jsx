@@ -3,8 +3,9 @@ import Footer from "../components/Footer/Footer";
 import { Box, Button, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Divider from '@mui/material/Divider';
+import NavigationSection from '../components/QuranComponents/NavigationSection/NavigationSection'
+import DisplayQuranSection from '../components/QuranComponents/DisplayQuranSection/DisplayQuranSection'
 
-const tempArray = [1, 2, 3, 4, 5, 6];
 
 function Quran({ props }) {
   return (
@@ -22,22 +23,7 @@ function Quran({ props }) {
             xs={2}
             sx={{ border: 1, borderColor: "white", borderRadius: 2 }}
           >
-            {tempArray.map((items) => (
-              <Grid item xs={12}>
-                <Button
-                  variant="text"
-                  sx={{ width: "100%", border: 2, borderColor: "white" }}
-                >
-                  <Box sx={{ display: "flex", gap: 4 }}>
-                    <Typography variant="body1">1</Typography>
-
-                    <Typography variant="body1">Al-Baqarah</Typography>
-
-                    <Typography variant="body1">البقرة</Typography>
-                  </Box>
-                </Button>
-              </Grid>
-            ))}
+            <NavigationSection />
           </Grid>
 
            <Grid
@@ -45,20 +31,7 @@ function Quran({ props }) {
             xs={9}
             sx={{ border: 1, borderColor: "white", borderRadius: 2 }}
           >
-
-
-            {
-                tempArray.map((items) => (
-                    <Box>
-                    <Grid item xs={12}>
-                     <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed asperiores inventore natus maxime recusandae placeat aliquid maiores perferendis! Impedit eius blanditiis recusandae! Porro provident similique id fugit laudantium! Animi, ipsa?
-                     </Typography>
-                    </Grid>
-                    <Divider style={{ background: 'gray' }} variant="middle" sx={{ borderBottomWidth: 2 }}/>
-                    </Box>
-                  ))
-            }
+            <DisplayQuranSection />
           </Grid>
      
         </Grid>
