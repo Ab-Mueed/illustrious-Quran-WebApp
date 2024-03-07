@@ -9,10 +9,10 @@ import SlantedDiv from "../components/SlantedDiv/SlantedDiv.jsx";
 import HeroSection from "../components/HeroSection/HeroSection.jsx";
 import Cards from "../components/Cards/Cards.jsx";
 import Footer from "../components/Footer/Footer.jsx";
-import {Box} from '@mui/material';
+import { Box } from "@mui/material";
 import { useState } from "react";
 import { lightMode, darkMode } from "../util/themeScheme.js";
-import {Root} from './home.style.js';
+import { Root } from "./home.style.js";
 
 export let themeMode = {};
 
