@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Button } from "@mui/material";
 import logo from "../../assets/logo.jpg";
@@ -6,7 +6,7 @@ import Stack from "@mui/material/Stack";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ColorLensRoundedIcon from "@mui/icons-material/ColorLensRounded";
 import { themeMode } from "../../pages/Root.jsx";
-import {Root,FirstBox, SecondBox, ThirdBox} from './navbar.style.js';
+import { Root, FirstBox, SecondBox, ThirdBox } from "./navbar.style.js";
 import { Link } from "react-router-dom";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -123,18 +123,32 @@ export default function NavBar({ onClick }) {
               }}
             >
               <Box>
-                <Typography varaint="h6">Sign in To Your Account</Typography>
 
-                <form action="">
-                  <div>
-                    <label htmlFor="">Email</label>
-                    <input type="email" />
-                  </div>
-                  <div>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" />
-                  </div>
-                </form>
+                <Box
+                  component="form"
+                  sx={{
+                    "& > :not(style)": { m: 1, width: "25ch" },
+                    display:'flex', flexDirection:'column', gap:2
+                  }}
+                  noValidate
+                  autoComplete="off"
+                >
+                  <Typography varaint="h6">Sign in To Your Account</Typography>
+                  <TextField
+                    id="outlined-basic"
+                    label="Email"
+                    variant="outlined"
+                    type="Email"
+                  />
+                   <TextField
+                    id="outlined-basic"
+                    label="Password"
+                    variant="outlined"
+                    type="password"
+                  />
+                  
+                 
+                </Box>
               </Box>
             </Menu>
           </div>
