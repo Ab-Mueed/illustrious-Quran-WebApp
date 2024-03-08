@@ -20,7 +20,7 @@ function Quran({ props }) {
         >
           <Grid
             container
-            xs={2}
+            xs={3}
             sx={{ border: 1, borderColor: "white", borderRadius: 2 }}
           >
             <NavigationSection />
@@ -28,7 +28,7 @@ function Quran({ props }) {
 
            <Grid
             container
-            xs={9}
+            xs={8}
             sx={{ border: 1, borderColor: "white", borderRadius: 2 }}
           >
             <DisplayQuranSection />
