@@ -1,25 +1,68 @@
+import { Box, Typography, Divider } from "@mui/material";
+import React from "react";
+import { useState, useEffect } from "react";
 
-import { Box, Typography ,Grid, Divider} from '@mui/material';
-import React from 'react'
+const VERSE_URL = "http://api.alquran.cloud/v1/surah/";
 
-
-const tempArray = [1, 2, 3, 4, 5, 6];
-
-const DisplayQuranSection = () => {
-  return <>
-    {
-        tempArray.map((items) => (
-            <Box>
-            <Grid item xs={12}>
-             <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed asperiores inventore natus maxime recusandae placeat aliquid maiores perferendis! Impedit eius blanditiis recusandae! Porro provident similique id fugit laudantium! Animi, ipsa?
-             </Typography>
-            </Grid>
-            <Divider style={{ background: 'gray' }} variant="middle" sx={{ borderBottomWidth: 2 }}/>
-            </Box>
-          ))
+const DisplayQuranSection = ({surahNumber}) => {
+  const [verse, setVerse] = useState([]);
+  const [isloading, setIsLoading] = useState(false);
+  console.log(surahNumber);
+  //......................................................................
+  useEffect(() => {
+    try {
+      setIsLoading(true);
+      const fetchVerse = async () => {
+        const response = await fetch(`${VERSE_URL}${surahNumber}`);
+        const verse = await response.json();
+        setVerse(verse);
+      };
+      fetchVerse();
+      setIsLoading(false);
+    } catch {
+      console.log("Error while fetching data");
     }
-  </>
-}
+  }, [surahNumber]);
 
-export default DisplayQuranSection
+  if (isloading) {
+    return (
+      <div>
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
+  if (!verse.data) {
+    return (
+      <div>
+        <h1>No data found</h1>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <Box my={2}>
+        <Typography sx={{ textAlign: "center" }} variant="h3">
+          {verse.data.name}
+        </Typography>
+        {verse.data.ayahs.map((item) => (
+          <Box mx={2} my={5} sx={{ display: "flex", flexDirection: "column" }}>
+            <Typography
+              variant="h4"
+              paddingBottom={10}
+              sx={{ textAlign: "right" }}
+            >
+              {item.text}
+            </Typography>
+            <Divider
+              sx={{ backgroundColor: "white", border: 1.5 }}
+              orientation="horizontal"
+            />
+          </Box>
+        ))}
+      </Box>
+    </>
+  );
+};
+
+export default DisplayQuranSection;
