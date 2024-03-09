@@ -18,7 +18,9 @@
     footerBgColor: "#EFECEC",
     footerTextColor: "#12372A",
     copyRightTextColor: "black",
-    githubIconColor:'black'
+    githubIconColor:'black',
+    quranVersesColor: "#795547"
+    
   };
 
 
@@ -44,6 +46,7 @@
     footerTextColor: "#999",
     copyRightTextColor:'#FBFBFC',
     githubIconColor: "#FBFBFC",
+    quranVersesColor: "#999"
   };
 
 

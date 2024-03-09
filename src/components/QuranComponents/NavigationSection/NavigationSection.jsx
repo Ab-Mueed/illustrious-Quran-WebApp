@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Typography, Grid, Button } from "@mui/material";
 import { useState, useEffect } from "react";
+import { themeMode } from "../../../pages/Root";
 
 const tempArray = [1, 2, 3, 4, 5, 6];
 const URL = "http://api.alquran.cloud/v1/surah";
@@ -50,23 +51,24 @@ const NavigationSection = ({ onhandleSurahNumber }) => {
 
   return (
     <>
-      <Box item xs={12} sx={{ width:"25vw", height: "90vh", overflow: "scroll", position:'fixed'}}>
+      <Box item xs={12} id="navigation-section" sx={{ width: "17vw", height: "90vh", overflow: "scroll", position: 'fixed' }}>
         {surah.data.map((item, index) => (
           <Button
             key={index}
-            variant="text"
             sx={{
               width: "100%",
-              border: "1px solid lightgrey",
-              color: "white",
+              display: 'flex', gap:5,
+              padding: '5px 10px', marginTop: '10px'
             }}
             onClick={() => handleChapterClick(item.number)}
           >
-            <Box sx={{ display: "flex", gap: 1.5 }}>
-              <Typography variant="body1">{item.number}</Typography>
-              <Typography variant="body1">{item.englishName}</Typography>
-              <Typography variant="body1">{item.name}</Typography>
+            <Typography variant="body1" sx={{ color: "#00967b" }}>{item.number}</Typography>
+            <Box>
+              <Typography variant="body1" sx={{ color: "#001017" }}>{item.englishName}</Typography>
+              <Typography variant="body1" sx={{ color: "#001017" }}>{item.name}</Typography>
             </Box>
+
+
           </Button>
         ))}
       </Box>

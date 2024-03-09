@@ -6,6 +6,7 @@ import Divider from "@mui/material/Divider";
 import NavigationSection from "../components/QuranComponents/NavigationSection/NavigationSection";
 import DisplayQuranSection from "../components/QuranComponents/DisplayQuranSection/DisplayQuranSection";
 import { useState } from "react";
+import { themeMode } from "./Root";
 
 function Quran({ props }) {
   const [selectedSurah, setSelectedSurah] = useState("1");
@@ -17,12 +18,12 @@ function Quran({ props }) {
 
   return (
     <>
-      <Box sx={{}}>
+      <Box sx={{backgroundColor:'#fefefe'}}>
         <Grid mt={0} container sx={{}}>
           <Grid
             item
-            xs={3}
-            sx={{}}
+            xs={2}
+            sx={{backgroundColor:"#f5f6f8"}}
           >
             <NavigationSection
               onhandleSurahNumber = {handleSurahNumber}
@@ -31,7 +32,7 @@ function Quran({ props }) {
 
           <Grid
             item
-            xs={9}
+            xs={10}
             sx={{}}
           >
             <DisplayQuranSection 
