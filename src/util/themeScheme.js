@@ -1,8 +1,8 @@
 // Light Mode
  export const lightMode = {
-    bodyColor: "#FFF7F1",
+    bodyColor: "#fefefe",
     navBarTextColor:'#12372A',
-    headingColor: "#12372A",
+    headingColor: "#00967b",
     introBgColor: "#EFECEC",
     paraColor: '#12372A',
     buttonBgColor1: "#03C988",

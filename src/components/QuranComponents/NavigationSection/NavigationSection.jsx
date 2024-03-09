@@ -9,7 +9,7 @@ const URL = "http://api.alquran.cloud/v1/surah";
 export let surahNumber;
 
 const NavigationSection = ({ onhandleSurahNumber }) => {
-  console.log("In Quran Navigation");
+  // console.log("In Quran Navigation");
   const [surah, setSurah] = useState([]);
   const [isloading, setIsLoading] = useState(false);
   // -----------------------------------------------
