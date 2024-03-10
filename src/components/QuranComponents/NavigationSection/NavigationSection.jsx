@@ -51,24 +51,53 @@ const NavigationSection = ({ onhandleSurahNumber }) => {
 
   return (
     <>
-      <Box item xs={12} id="navigation-section" sx={{ width: "17vw", height: "90vh", overflow: "scroll", position: 'fixed' }}>
+      <Box
+        item
+        xs={12}
+        id="navigation-section"
+        px={1}
+        sx={{
+          width: "19vw",
+          height: "90vh",
+          overflow: "scroll",
+          position: "fixed",
+        }}
+      >
         {surah.data.map((item, index) => (
           <Button
             key={index}
             sx={{
               width: "100%",
-              display: 'flex', gap:5,
-              padding: '5px 10px', marginTop: '10px'
+              display: "flex",
+              gap: 8,
+              padding: "5px 10px",
+              marginTop: "15px",
+              justifyContent: "start",
+              borderRadius: 1,
+              backgroundColor: themeMode.surahButtonBgColor,
             }}
             onClick={() => handleChapterClick(item.number)}
           >
-            <Typography variant="body1" sx={{ color: "#00967b" }}>{item.number}</Typography>
-            <Box>
-              <Typography variant="body1" sx={{ color: "#001017" }}>{item.englishName}</Typography>
-              <Typography variant="body1" sx={{ color: "#001017" }}>{item.name}</Typography>
+            <Box
+              sx={{
+                color: themeMode.surahIdColor,
+                backgroundColor: themeMode.surahIdBgColor,
+                padding:'2px 12px',
+                borderRadius: '0px 5px 5px 0px',
+              }}
+            >
+              <Typography variant="body1" sx={{fontSize:'10px'}}>
+                {item.number}
+              </Typography>
             </Box>
-
-
+            <Box>
+              <Typography variant="body1" sx={{ color: themeMode.surahEnglishNameColor, fontSize:'13px' }}>
+                {item.englishName}
+              </Typography>
+              <Typography variant="body1" sx={{ color: themeMode.surahArabicNameColor, fontSize:'13px' }}>
+                {item.name}
+              </Typography>
+            </Box>
           </Button>
         ))}
       </Box>

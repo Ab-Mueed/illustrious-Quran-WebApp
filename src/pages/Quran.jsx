@@ -18,12 +18,12 @@ function Quran({ props }) {
 
   return (
     <>
-      <Box sx={{backgroundColor:'#fefefe'}}>
+      <Box sx={{backgroundColor:themeMode.quranPageBgColor}}>
         <Grid mt={0} container sx={{}}>
           <Grid
             item
-            xs={2}
-            sx={{backgroundColor:"#f5f6f8"}}
+            xs={2.5}
+            sx={{}}
           >
             <NavigationSection
               onhandleSurahNumber = {handleSurahNumber}
@@ -32,7 +32,7 @@ function Quran({ props }) {
 
           <Grid
             item
-            xs={10}
+            xs={9.5}
             sx={{}}
           >
             <DisplayQuranSection 

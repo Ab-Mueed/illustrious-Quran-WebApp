@@ -68,7 +68,7 @@ const DisplayQuranSection = ({ surahNumber }) => {
   return (
     <>
       <Box my={2}>
-        <Typography sx={{ textAlign: "center", color: "#00967b" }} variant="h3">
+        <Typography sx={{ textAlign: "center", color: themeMode.surahHeadingColor }} variant="h3">
           {verse.data.name}
         </Typography>
         {verse.data.ayahs.map((item,index) => (
@@ -78,25 +78,25 @@ const DisplayQuranSection = ({ surahNumber }) => {
                 <Stack sx={{ width: 100 }} spacing={1}>
                   <Button
                     className="remove-focus-outline"
-                    sx={{ color: "grey" }}
+                    sx={{ color: themeMode.displayQuranIconColor }}
                   >
                     <EditNoteIcon />
                   </Button>
                   <Button
                     className="remove-focus-outline"
-                    sx={{ color: "grey" }}
+                    sx={{ color: themeMode.displayQuranIconColor }}
                   >
                     <ImportContactsIcon />
                   </Button>
                   <Button
                     className="remove-focus-outline"
-                    sx={{ color: "grey" }}
+                    sx={{ color: themeMode.displayQuranIconColor }}
                   >
                     <PlayArrowIcon />
                   </Button>
                   <Button
                     className="remove-focus-outline"
-                    sx={{ color: "grey" }}
+                    sx={{ color: themeMode.displayQuranIconColor }}
                   >
                     <BookmarkIcon />
                   </Button>
@@ -109,14 +109,14 @@ const DisplayQuranSection = ({ surahNumber }) => {
                   variant="h4"
                   sx={{
                     textAlign: "right",
-                    color: "#001017",
+                    color: themeMode.surahVersesColor,
                     fontWeight: "bold",
                   }}
                 >
                   {item.text}
                 </Typography>
 
-                <Typography variant="body1" sx={{color:'#00967b'}}>
+                <Typography variant="body1" sx={{color:themeMode.translationColor}}>
                     {translation.data[0].ayahs[index].text}
                 </Typography>
                 </Stack>
