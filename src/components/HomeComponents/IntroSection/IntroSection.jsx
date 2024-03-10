@@ -4,6 +4,7 @@ import { Button } from "@mui/material";
 import Rating from "@mui/material/Rating";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import MicIcon from "@mui/icons-material/Mic";
+import { Link } from "react-router-dom";
 import Quran from "../../../assets/Quran.jpg";
 import Quran2 from "../../../assets/Quran2.jpg";
 import {themeMode} from '../../../pages/Root.jsx';
@@ -26,11 +27,12 @@ export default function IntroSection() {
         alt="Quran Image"
         src={Quran2}
       />
-      {/* <FirstBox>
+      <FirstBox>
         <Typography variant="body1" sx={{ color: themeMode.paraColor  }}>
           Welcome to our Quran Reading platform, where you can embark on a
           transformative journey through the sacred text of Islam.
         </Typography>
+        <Link to="/Quran">
         <FirstButton
           variant="contained"
           disableElevation
@@ -39,6 +41,7 @@ export default function IntroSection() {
         >
           Read Quran
         </FirstButton>
+        </Link>
         <SecondButton
           variant="contained"
           disableElevation
@@ -55,7 +58,7 @@ export default function IntroSection() {
         <Typography variant="body1" sx={{ color: themeMode.paraColor }}>
           100K+ ratings on Google
         </Typography>
-      </FirstBox> */}
+      </FirstBox>
     </Root>
   );
 }

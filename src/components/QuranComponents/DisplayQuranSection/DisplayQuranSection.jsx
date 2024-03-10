@@ -14,7 +14,7 @@ const DisplayQuranSection = ({ surahNumber }) => {
   const [verse, setVerse] = useState([]);
   const [translation, setTranslation] = useState([]);
   const [isloading, setIsLoading] = useState(false);
-//   console.log(surahNumber);
+  //   console.log(surahNumber);
   //......................................................................
   useEffect(() => {
     try {
@@ -30,12 +30,14 @@ const DisplayQuranSection = ({ surahNumber }) => {
       console.log("Error while fetching data");
     }
   }, [surahNumber]);
-//   ---------------TRANSLATION---------------------
+  //   ---------------TRANSLATION---------------------
   useEffect(() => {
     try {
       setIsLoading(true);
       const fetchTranslation = async () => {
-        const response = await fetch(`${VERSE_URL}${surahNumber}/editions/en.asad`);
+        const response = await fetch(
+          `${VERSE_URL}${surahNumber}/editions/en.asad`
+        );
         const translation = await response.json();
         setTranslation(translation);
       };
@@ -62,16 +64,16 @@ const DisplayQuranSection = ({ surahNumber }) => {
     );
   }
 
-  
-  
-
   return (
     <>
       <Box my={2}>
-        <Typography sx={{ textAlign: "center", color: themeMode.surahHeadingColor }} variant="h3">
+        <Typography
+          sx={{ textAlign: "center", color: themeMode.surahHeadingColor }}
+          variant="h3"
+        >
           {verse.data.name}
         </Typography>
-        {verse.data.ayahs.map((item,index) => (
+        {verse.data.ayahs.map((item, index) => (
           <>
             <Grid container px={2} my={2} sx={{}}>
               <Grid item xs={2}>
@@ -105,20 +107,34 @@ const DisplayQuranSection = ({ surahNumber }) => {
 
               <Grid item xs={10} py={5}>
                 <Stack spacing={4}>
-                <Typography
-                  variant="h4"
-                  sx={{
-                    textAlign: "right",
-                    color: themeMode.surahVersesColor,
-                    fontWeight: "bold",
-                  }}
-                >
-                  {item.text}
-                </Typography>
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      textAlign: "right",
+                      color: themeMode.surahVersesColor,
+                      fontWeight: "bold",
+                    }}
+                  >
+                    {item.text}
+                    <span
+                      style={{
+                        fontSize: "10px",
+                        padding:'7px 10px',
+                        backgroundColor:'green',
+                        borderRadius: '30px',
+                        borderColor: "black",
+                      }}
+                    >
+                      {item.number}
+                    </span>
+                  </Typography>
 
-                <Typography variant="body1" sx={{color:themeMode.translationColor}}>
+                  <Typography
+                    variant="body1"
+                    sx={{ color: themeMode.translationColor }}
+                  >
                     {translation.data[0].ayahs[index].text}
-                </Typography>
+                  </Typography>
                 </Stack>
               </Grid>
             </Grid>

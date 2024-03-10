@@ -21,7 +21,7 @@ export default function Footer() {
         // p={5}
       >
         {/* Grid-1 */}
-        <GridItem item xs={12} >
+        <GridItem item xs={12} md={6} >
           <Button
             variant="text"
             className="remove-focus-outline"
@@ -62,7 +62,7 @@ export default function Footer() {
           </Stack>
         </GridItem>
         {/* Grid-2 */}
-        <GridItem item xs={12}>
+        <GridItem item xs={12} md={2}>
           <Stack>
             <CustomTypography variant="body1" sx={{ fontWeight: "bold" }}>
               Navigation
@@ -78,7 +78,7 @@ export default function Footer() {
           </Stack>
         </GridItem>
         {/* Grid-3 */}
-        <GridItem item xs={12} sx={{ color: themeMode.footerTextColor }}>
+        <GridItem item xs={12} md={2} sx={{ color: themeMode.footerTextColor }}>
           <Stack>
             <CustomTypography variant="body1" sx={{ fontWeight: "bold" }}>
               Popular Link
@@ -91,7 +91,7 @@ export default function Footer() {
           </Stack>
         </GridItem>
         {/* Grid-4 */}
-        <GridItem item xs={12} sx={{ color: themeMode.footerTextColor }}>
+        <GridItem item xs={12} md={2} sx={{ color: themeMode.footerTextColor }}>
           <Stack>
             <CustomTypography variant="body1" sx={{ fontWeight: "bold" }}>
               Company

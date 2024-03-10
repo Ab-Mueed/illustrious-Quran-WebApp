@@ -9,7 +9,7 @@ export default function SlantedDiv() {
           className="first-slant"
           sx={{ backgroundColor: themeMode.firstSlantColor }}
         ></FirstSlant>
-        <SecondSlant className="second-slant" pt={1}>
+        <SecondSlant className="second-slant" pt={3}>
           <CustomTypography variant="body1">
             “Allah does not burden a soul beyond that it can bear…” (Al-Baqarah,
             2:286)

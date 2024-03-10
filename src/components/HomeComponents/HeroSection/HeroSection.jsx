@@ -7,8 +7,8 @@ import {
   CustomParagraph,
   FirstBox,
   FirstButton,
-  Root
-} from "./heroSection.style";
+  Root,
+} from "./heroSection.style.js";
 
 export default function HeroSection() {
   return (
@@ -17,9 +17,8 @@ export default function HeroSection() {
       display: "flex",
       justifyContent: "space-between",
       marginTop: 25,
-      gap: 10,
+      gap: 1,
       marginBottom: 5,
-      flexWrap:'wrap',
       paddingTop:1,
     }}>
       <FirstImageBox component="img" sx={{}} alt="Quran Image" src={Quran3} />

@@ -11,7 +11,6 @@ export const Root = styled(Box)(({ theme }) => ({
 
 export const CustomTypography = styled(Typography)(({ theme }) => ({
     color: themeMode.headingColor, 
-    
     fontWeight: "bold",
     [theme.breakpoints.down("sm")]: {fontSize:'2rem', paddingLeft:10},
     [theme.breakpoints.up("sm")]: {},

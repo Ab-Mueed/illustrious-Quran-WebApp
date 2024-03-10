@@ -32,6 +32,6 @@ export const CustomTypography = styled(Typography)(({ theme }) => ({
     color: themeMode.slantTextColor, fontWeight: 500, textAlign: "center",
     [theme.breakpoints.down("sm")]: {fontSize:'1rem'},
     [theme.breakpoints.up("sm")]: {},
-    [theme.breakpoints.up("md")]: {},
+    [theme.breakpoints.up("md")]: {fontSize:'1.5rem'},
     [theme.breakpoints.up("lg")]: {},
   }));

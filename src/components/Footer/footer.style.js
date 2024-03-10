@@ -19,14 +19,14 @@ export const GridContainer = styled(Grid)(({ theme }) => ({
     backgroundColor: themeMode.footerBgColor, borderRadius: 2,
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.up("sm")]: {},
-    [theme.breakpoints.up("md")]: {},
+    [theme.breakpoints.up("md")]: {padding:5},
     [theme.breakpoints.up("lg")]: {},
   }));
 
   export const GridItem = styled(Grid)(({ theme }) => ({
     [theme.breakpoints.down("sm")]: {},
     [theme.breakpoints.up("sm")]: {},
-    [theme.breakpoints.up("md")]: {},
+    [theme.breakpoints.up("md")]: {paddingLeft:5, paddingRight:5},
     [theme.breakpoints.down("lg")]: {},
   }));
 
@@ -68,7 +68,7 @@ export const SecondGridContainer = styled(Grid)(({ theme }) => ({
     color: themeMode.copyRightTextColor,
     [theme.breakpoints.down("sm")]: {fontSize:'0.5rem'},
     [theme.breakpoints.up("sm")]: {},
-    [theme.breakpoints.up("md")]: {},
+    [theme.breakpoints.up("md")]: {fontSize:12},
     [theme.breakpoints.down("lg")]: {},
   }));
 
@@ -78,7 +78,7 @@ export const SecondGridContainer = styled(Grid)(({ theme }) => ({
     color: themeMode.copyRightTextColor,
     [theme.breakpoints.down("sm")]: {gap:8},
     [theme.breakpoints.up("sm")]: {},
-    [theme.breakpoints.up("md")]: {},
+    [theme.breakpoints.up("md")]: {gap:6},
     [theme.breakpoints.down("lg")]: {},
   }));
 

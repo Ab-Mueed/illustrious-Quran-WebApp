@@ -14,7 +14,7 @@ export const Root = styled(Box)(({ theme }) => ({
 export const GridContainer = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {},
   [theme.breakpoints.up("sm")]: {},
-  [theme.breakpoints.up("md")]: {},
+  [theme.breakpoints.up("md")]: {spacing:3},
   [theme.breakpoints.up("lg")]: {},
 }));
 
@@ -35,7 +35,7 @@ export const CustomCard = styled(Card)(({ theme }) => ({
   [theme.breakpoints.up("sm")]: {maxWidth:'60vw'},
   [theme.breakpoints.up("md")]: {},
   [theme.breakpoints.up("lg")]: {maxWidth:'40vw'},
-  [theme.breakpoints.up("xl")]: {maxWidth:'40vw'},
+  [theme.breakpoints.up("xl")]: {},
 }));
 
 export const CustomCardMedia = styled(CardMedia)(({ theme }) => ({
@@ -56,7 +56,7 @@ export const CustomCardMedia = styled(CardMedia)(({ theme }) => ({
   export const CustomDescriptionTypography = styled(Typography)(({ theme }) => ({
     color:themeMode.paraColor,
     [theme.breakpoints.down("sm")]: {fontSize:'0.8rem'},
-    [theme.breakpoints.up("sm")]: {fontSize:'1rem'},
+    [theme.breakpoints.up("sm")]: {},
     [theme.breakpoints.up("md")]: {},
     [theme.breakpoints.up("lg")]: {},
   }));
