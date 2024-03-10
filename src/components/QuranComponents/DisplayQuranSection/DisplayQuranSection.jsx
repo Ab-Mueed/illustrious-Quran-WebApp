@@ -13,6 +13,9 @@ const VERSE_URL = "http://api.alquran.cloud/v1/surah/";
 const DisplayQuranSection = ({ surahNumber }) => {
   const [verse, setVerse] = useState([]);
   const [translation, setTranslation] = useState([]);
+  const [inputAudio, setAudio] = useState([]);
+  const [isPlaying, setPlaying] = useState(false);
+
   const [isloading, setIsLoading] = useState(false);
   //   console.log(surahNumber);
   //......................................................................
@@ -48,6 +51,47 @@ const DisplayQuranSection = ({ surahNumber }) => {
     }
   }, [surahNumber]);
   console.log(translation);
+
+  // -------------AUDIO--------------------------------
+
+  useEffect(() => {
+    try {
+      setIsLoading(true);
+      const fetchAudio = async () => {
+        const response = await fetch(`${VERSE_URL}${surahNumber}/ar.alafasy`);
+        const inputAudio = await response.json();
+        setAudio(inputAudio);
+      };
+      fetchAudio();
+      setIsLoading(false);
+    } catch {
+      console.log("Error while fetching data");
+    }
+  }, [surahNumber]);
+  console.log(inputAudio);
+
+  // ---------------------------------------------
+
+  async function handleAudio(index) {
+    let playing = isPlaying;
+    console.log("At the Beginning " + playing);
+    let audioUrl = inputAudio.data.ayahs[index].audio;
+    let sound = new Audio(audioUrl);
+    if (playing) {
+      sound.pause();
+    } else {
+      setPlaying((prev) => !prev);
+      await sound.play();
+      console.log("after Await " + isPlaying);
+    }
+    console.log("Before setPlaying " + playing);
+    setPlaying((prev) => !prev);
+    console.log("After setPlaying " + playing);
+  }
+
+  // -------------Getting Index-------------------------
+
+  // ----------------------------------------------
 
   if (isloading) {
     return (
@@ -91,6 +135,7 @@ const DisplayQuranSection = ({ surahNumber }) => {
                     <ImportContactsIcon />
                   </Button>
                   <Button
+                    onClick={() => handleAudio(index)}
                     className="remove-focus-outline"
                     sx={{ color: themeMode.displayQuranIconColor }}
                   >
@@ -119,9 +164,9 @@ const DisplayQuranSection = ({ surahNumber }) => {
                     <span
                       style={{
                         fontSize: "10px",
-                        padding:'7px 10px',
-                        backgroundColor:'green',
-                        borderRadius: '30px',
+                        padding: "7px 10px",
+                        backgroundColor: themeMode.versesTerminatorColor,
+                        borderRadius: "30px",
                         borderColor: "black",
                       }}
                     >

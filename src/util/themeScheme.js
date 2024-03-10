@@ -29,10 +29,7 @@ export const lightMode = {
   surahVersesColor: "#001017",
   translationColor: "#00967b",
   quranPageBgColor: "#fefefe",
-
-
-
-
+  versesTerminatorColor: "#00967b",
 
 };
 
@@ -68,6 +65,7 @@ export const darkMode = {
   surahVersesColor: "#FBFBFC",
   translationColor: "#999",
   quranPageBgColor: "#000",
+  versesTerminatorColor: "#FF6433",
 };
 
 // export const themeScheme = {
