@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { themeMode } from "../../../pages/Root";
 
 const tempArray = [1, 2, 3, 4, 5, 6];
-const URL = "http://api.alquran.cloud/v1/surah";
+const URL = "https://illustriousquran-backend.onrender.com/v1/scripture/chapterMetaData/all";
 
 export let surahNumber;
 
@@ -76,7 +76,7 @@ const NavigationSection = ({ onhandleSurahNumber }) => {
               borderRadius: 1,
               backgroundColor: themeMode.surahButtonBgColor,
             }}
-            onClick={() => handleChapterClick(item.number)}
+            onClick={() => handleChapterClick(item.chapter)}
           >
             <Box
               sx={{
@@ -87,15 +87,15 @@ const NavigationSection = ({ onhandleSurahNumber }) => {
               }}
             >
               <Typography variant="body1" sx={{fontSize:'10px'}}>
-                {item.number}
+                {item.chapter}
               </Typography>
             </Box>
             <Box>
               <Typography variant="body1" sx={{ color: themeMode.surahEnglishNameColor, fontSize:'13px' }}>
-                {item.englishName}
+                {item.name}
               </Typography>
               <Typography variant="body1" sx={{ color: themeMode.surahArabicNameColor, fontSize:'13px' }}>
-                {item.name}
+                {item.arabicName}
               </Typography>
             </Box>
           </Button>
