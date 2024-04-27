@@ -144,79 +144,81 @@ const DisplayQuranSection = ({
         >
           {/*  */}
         </Typography>
-        {quranData.data.map((item, index) => (
-          <>
-            <Grid container px={2} my={2} sx={{}}>
-              <Grid item xs={2}>
-                <Stack sx={{ width: 100 }} spacing={1}>
-                  <Button
-                    className="remove-focus-outline"
-                    sx={{ color: themeMode.displayQuranIconColor }}
-                    onClick={onOpenPreferenceMenu}
-                  >
-                    <EditNoteIcon />
-                  </Button>
-                  <Button
-                    className="remove-focus-outline"
-                    sx={{ color: themeMode.displayQuranIconColor }}
-                  >
-                    <ImportContactsIcon />
-                  </Button>
-                  <Button
-                    // onClick={() => handleAudio(index)}
-                    className="remove-focus-outline"
-                    sx={{ color: themeMode.displayQuranIconColor }}
-                  >
-                    <PlayArrowIcon />
-                  </Button>
-                  <Button
-                    className="remove-focus-outline"
-                    sx={{ color: themeMode.displayQuranIconColor }}
-                  >
-                    <BookmarkIcon />
-                  </Button>
-                </Stack>
-              </Grid>
+        {quranData.data
+          .sort((a, b) => a.verse - b.verse)
+          .map((item, index) => (
+            <>
+              <Grid container px={2} my={2} sx={{}}>
+                <Grid item xs={2}>
+                  <Stack sx={{ width: 100 }} spacing={1}>
+                    <Button
+                      className="remove-focus-outline"
+                      sx={{ color: themeMode.displayQuranIconColor }}
+                      onClick={onOpenPreferenceMenu}
+                    >
+                      <EditNoteIcon />
+                    </Button>
+                    <Button
+                      className="remove-focus-outline"
+                      sx={{ color: themeMode.displayQuranIconColor }}
+                    >
+                      <ImportContactsIcon />
+                    </Button>
+                    <Button
+                      // onClick={() => handleAudio(index)}
+                      className="remove-focus-outline"
+                      sx={{ color: themeMode.displayQuranIconColor }}
+                    >
+                      <PlayArrowIcon />
+                    </Button>
+                    <Button
+                      className="remove-focus-outline"
+                      sx={{ color: themeMode.displayQuranIconColor }}
+                    >
+                      <BookmarkIcon />
+                    </Button>
+                  </Stack>
+                </Grid>
 
-              <Grid item xs={10} py={5}>
-                <Stack spacing={4}>
-                  <Typography
-                    variant="h4"
-                    sx={{
-                      textAlign: "right",
-                      color: themeMode.surahVersesColor,
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {item.data.text}
-                    <span
-                      style={{
-                        fontSize: "10px",
-                        padding: "7px 10px",
-                        backgroundColor: themeMode.versesTerminatorColor,
-                        borderRadius: "30px",
-                        borderColor: "black",
+                <Grid item xs={10} py={5}>
+                  <Stack spacing={4}>
+                    <Typography
+                      variant="h4"
+                      sx={{
+                        textAlign: "right",
+                        color: themeMode.surahVersesColor,
+                        fontWeight: "bold",
                       }}
                     >
-                      {item.verse}
-                    </span>
-                  </Typography>
+                      {item.data.text}
+                      <span
+                        style={{
+                          fontSize: "10px",
+                          padding: "7px 10px",
+                          backgroundColor: themeMode.versesTerminatorColor,
+                          borderRadius: "30px",
+                          borderColor: "black",
+                        }}
+                      >
+                        {item.verse}
+                      </span>
+                    </Typography>
 
-                  <Typography
-                    variant="body1"
-                    sx={{ color: themeMode.translationColor }}
-                  >
-                    {item.data.translation}
-                  </Typography>
-                </Stack>
+                    <Typography
+                      variant="body1"
+                      sx={{ color: themeMode.translationColor }}
+                    >
+                      {item.data.translation}
+                    </Typography>
+                  </Stack>
+                </Grid>
               </Grid>
-            </Grid>
-            <Divider
-              sx={{ backgroundColor: "grey" }}
-              orientation="horizontal"
-            />
-          </>
-        ))}
+              <Divider
+                sx={{ backgroundColor: "grey" }}
+                orientation="horizontal"
+              />
+            </>
+          ))}
       </Box>
     </>
   );

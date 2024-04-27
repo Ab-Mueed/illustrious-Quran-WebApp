@@ -63,7 +63,8 @@ const NavigationSection = ({ onhandleSurahNumber }) => {
           position: "fixed",
         }}
       >
-        {surah.data.map((item, index) => (
+        {surah.data
+          .sort((a, b) => a.chapter - b.chapter).map((item, index) => (
           <Button
             key={index}
             sx={{

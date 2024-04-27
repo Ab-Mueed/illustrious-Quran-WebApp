@@ -27,7 +27,7 @@ function Quran({ props }) {
 
   useEffect(() => {
     fetchTranslations();
-    fetchAuthors();
+    fetchAuthors("en");
     fetchTextStyles();
   }, []);
 
@@ -45,11 +45,10 @@ function Quran({ props }) {
   };
   // fetchTranslations();
 
-  const fetchAuthors = async () => {
+  const fetchAuthors = async (language) => {
     try {
-      const availableLanguage = 'en';
       const response = await fetch(
-        `https://illustriousquran-backend.onrender.com/v1/scripture/quraan/info/authorsForLanguage?language=${availableLanguage}`
+        `https://illustriousquran-backend.onrender.com/v1/scripture/quraan/info/authorsForLanguage?language=${language}`
       );
       const data = await response.json();
       setAuthors(data);
@@ -91,6 +90,11 @@ function Quran({ props }) {
     handleClosePreference();
   };
 
+  // Callback function to handle translation language change
+  const handleTranslationLanguageChange = (language) => {
+    fetchAuthors(language); // Fetch authors based on selected language
+  };
+
   return (
     <>
       <Box sx={{ backgroundColor: themeMode.quranPageBgColor }}>
@@ -114,6 +118,7 @@ function Quran({ props }) {
             translations={translations}
             authors={author}
             textStyles={textStyles}
+            onTranslationLanguageChange={handleTranslationLanguageChange}
           />
         )}
       </Box>

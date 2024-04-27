@@ -8,6 +8,7 @@ const PreferenceMenu = ({
   translations,
   authors,
   textStyles,
+  onTranslationLanguageChange,
 }) => {
   const [translationLanguage, setTranslationLanguage] = useState("");
   const [textStyle, setTextStyle] = useState("");
@@ -44,7 +45,7 @@ const PreferenceMenu = ({
           select
           label="Translation Language"
           value={translationLanguage}
-          onChange={(e) => setTranslationLanguage(e.target.value)}
+          onChange={handleTranslationLanguageChange}
           fullWidth
           sx={{ mt: 2 }}
         >
