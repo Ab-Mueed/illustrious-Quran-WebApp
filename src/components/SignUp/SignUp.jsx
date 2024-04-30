@@ -34,7 +34,7 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-export default function SignUp({ open, onClose }) {
+export default function SignUp({ open, onClose, handleToggleView }) {
   //  Handling SignUp Request
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -154,7 +154,7 @@ export default function SignUp({ open, onClose }) {
               </Button>
               <Grid container justifyContent="flex-end">
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="#" variant="body2" onClick={handleToggleView}>
                     Already have an account? Sign in
                   </Link>
                 </Grid>

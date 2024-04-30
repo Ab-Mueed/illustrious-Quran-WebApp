@@ -10,19 +10,50 @@ import { Root, FirstBox, SecondBox, ThirdBox } from "./navbar.style.js";
 import { Link } from "react-router-dom";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SignUp from "../SignUp/SignUp.jsx";
+import SignIn from "../SignIn/SignIn.jsx";
 
 export default function NavBar({ onClick }) {
   const [openSignUp, setOpenSignUp] = useState(false);
+  const [showSignIn, setShowSignIn] = useState(false);
+  const [loggedInEmail, setLoggedInEmail] = useState(null);
+
+  useEffect(() => {
+    // Check if loggedInEmail is set, then update the button label
+    if (loggedInEmail) {
+      const accountButton = document.getElementById("account-button");
+      if (accountButton) {
+        accountButton.textContent = loggedInEmail;
+      }
+    }
+  }, [loggedInEmail]);
+
+  // Handler for successful login
+  const handleLoginSuccess = (email) => {
+    setLoggedInEmail(email);
+  };
 
   const handleSignUpOpen = () => {
     setOpenSignUp(true);
+    setShowSignIn(false);
   };
 
   const handleSignUpClose = () => {
     setOpenSignUp(false);
   };
+
+  const handleToggleView = () => {
+    setShowSignIn((prev) => !prev);
+    setOpenSignUp(false);
+  };
+
+  const handleSignInClose = () => {
+    setShowSignIn(false);
+  };
+
+  console.log("Sign Up: ", openSignUp);
+  console.log("Sign In: ", showSignIn);
 
   return (
     <Root>
@@ -99,20 +130,34 @@ export default function NavBar({ onClick }) {
 
       <ThirdBox>
         <Stack direction="row" spacing={1}>
-          <Button
-            aria-controls={open ? "basic-menu" : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
-            onClick={handleSignUpOpen}
-            variant="text"
-            size="small"
-            startIcon={<AccountCircleIcon />}
-            className="remove-focus-outline"
-            disableElevation
-            sx={{ color: themeMode.navBarTextColor }}
-          >
-            Account
-          </Button>
+          {loggedInEmail ? (
+            <Button
+              variant="text"
+              size="small"
+              startIcon={<AccountCircleIcon />}
+              className="remove-focus-outline"
+              disableElevation
+              sx={{ color: themeMode.navBarTextColor }}
+            >
+              {loggedInEmail}
+            </Button>
+          ) : (
+            <Button
+              id="account-button"
+              // aria-controls={open ? "basic-menu" : undefined}
+              // aria-haspopup="true"
+              // aria-expanded={open ? "true" : undefined}
+              onClick={handleSignUpOpen}
+              variant="text"
+              size="small"
+              startIcon={<AccountCircleIcon />}
+              className="remove-focus-outline"
+              disableElevation
+              sx={{ color: themeMode.navBarTextColor }}
+            >
+              Account
+            </Button>
+          )}
 
           <Button
             variant="text"
@@ -125,7 +170,20 @@ export default function NavBar({ onClick }) {
           ></Button>
         </Stack>
       </ThirdBox>
-      <SignUp open={openSignUp} onClose={handleSignUpClose} />
+      {openSignUp && (
+        <SignUp
+          open={openSignUp}
+          onClose={handleSignUpClose}
+          handleToggleView={handleToggleView}
+        />
+      )}
+      {showSignIn && (
+        <SignIn
+          open={showSignIn}
+          onClose={handleSignInClose}
+          onLoginSuccess={handleLoginSuccess}
+        />
+      )}
     </Root>
   );
 }

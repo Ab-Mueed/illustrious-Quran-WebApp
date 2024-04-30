@@ -46,6 +46,7 @@ export default function HeroSection() {
         <FirstButton
           variant="contained"
           className="remove-focus-outline"
+          disableElevation
         >
           Learn More
         </FirstButton>
