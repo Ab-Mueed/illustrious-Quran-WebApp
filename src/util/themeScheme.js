@@ -19,7 +19,7 @@ export const lightMode = {
   footerTextColor: "#12372A",
   copyRightTextColor: "black",
   githubIconColor: "black",
-  surahButtonBgColor: "#F0A500",
+  surahButtonBgColor: "#FFAF45",
   surahIdColor: "black",
   surahIdBgColor: "#0b6659",
   surahEnglishNameColor: "#001017",
