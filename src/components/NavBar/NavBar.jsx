@@ -11,15 +11,17 @@ import { Link } from "react-router-dom";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
+import SignUp from "../SignUp/SignUp.jsx";
 
 export default function NavBar({ onClick }) {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const [openSignUp, setOpenSignUp] = useState(false);
+
+  const handleSignUpOpen = () => {
+    setOpenSignUp(true);
   };
-  const handleClose = () => {
-    setAnchorEl(null);
+
+  const handleSignUpClose = () => {
+    setOpenSignUp(false);
   };
 
   return (
@@ -97,61 +99,20 @@ export default function NavBar({ onClick }) {
 
       <ThirdBox>
         <Stack direction="row" spacing={1}>
-          <div>
-            <Button
-              aria-controls={open ? "basic-menu" : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? "true" : undefined}
-              onClick={handleClick}
-              variant="text"
-              size="small"
-              startIcon={<AccountCircleIcon />}
-              className="remove-focus-outline"
-              disableElevation
-              sx={{ color: themeMode.navBarTextColor }}
-            >
-              Account
-            </Button>
-
-            <Menu
-              id="basic-menu"
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                "aria-labelledby": "basic-button",
-              }}
-            >
-              <Box>
-
-                <Box
-                  component="form"
-                  sx={{
-                    "& > :not(style)": { m: 1, width: "25ch" },
-                    display:'flex', flexDirection:'column', gap:2
-                  }}
-                  noValidate
-                  autoComplete="off"
-                >
-                  <Typography varaint="h6">Sign in To Your Account</Typography>
-                  <TextField
-                    id="outlined-basic"
-                    label="Email"
-                    variant="outlined"
-                    type="Email"
-                  />
-                   <TextField
-                    id="outlined-basic"
-                    label="Password"
-                    variant="outlined"
-                    type="password"
-                  />
-                  
-                 
-                </Box>
-              </Box>
-            </Menu>
-          </div>
+          <Button
+            aria-controls={open ? "basic-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? "true" : undefined}
+            onClick={handleSignUpOpen}
+            variant="text"
+            size="small"
+            startIcon={<AccountCircleIcon />}
+            className="remove-focus-outline"
+            disableElevation
+            sx={{ color: themeMode.navBarTextColor }}
+          >
+            Account
+          </Button>
 
           <Button
             variant="text"
@@ -164,6 +125,7 @@ export default function NavBar({ onClick }) {
           ></Button>
         </Stack>
       </ThirdBox>
+      <SignUp open={openSignUp} onClose={handleSignUpClose} />
     </Root>
   );
 }

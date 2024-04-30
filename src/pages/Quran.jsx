@@ -15,9 +15,7 @@ function Quran({ props }) {
   const [translations, setTranslations] = useState([]);
   const [author, setAuthors] = useState([]);
   const [textStyles, setTextStyles] = useState([]);
-
-
-
+  const [arabicName, setArabicName] = useState("");
 
   const [preferences, setPreferences] = useState({
     translationLanguage: "",
@@ -86,7 +84,7 @@ function Quran({ props }) {
   const handleSavePreference = (settings) => {
     // Implement logic to update Qur'an page with selected preferences
     setPreferences(settings);
-    console.log("preferences Updated:", settings);
+    alert("Preferences Updated:", settings);
     handleClosePreference();
   };
 
@@ -95,12 +93,19 @@ function Quran({ props }) {
     fetchAuthors(language); // Fetch authors based on selected language
   };
 
+  const handleArabicName = (arabicName) => {
+    setArabicName(arabicName);
+  };
+
   return (
     <>
       <Box sx={{ backgroundColor: themeMode.quranPageBgColor }}>
         <Grid mt={0} container sx={{}}>
           <Grid item xs={2.5} sx={{}}>
-            <NavigationSection onhandleSurahNumber={handleSurahNumber} />
+            <NavigationSection
+              onhandleSurahNumber={handleSurahNumber}
+              onArabicNameChange={handleArabicName}
+            />
           </Grid>
 
           <Grid item xs={9.5} sx={{}}>
@@ -108,6 +113,7 @@ function Quran({ props }) {
               surahNumber={selectedSurah}
               onOpenPreferenceMenu={handleOpenPreference}
               preferences={preferences}
+              arabicName = {arabicName}
             />
           </Grid>
         </Grid>

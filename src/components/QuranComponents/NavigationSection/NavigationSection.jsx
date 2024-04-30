@@ -8,7 +8,7 @@ const URL = "https://illustriousquran-backend.onrender.com/v1/scripture/chapterM
 
 export let surahNumber;
 
-const NavigationSection = ({ onhandleSurahNumber }) => {
+const NavigationSection = ({ onhandleSurahNumber, onArabicNameChange }) => {
   // console.log("In Quran Navigation");
   const [surah, setSurah] = useState([]);
   const [isloading, setIsLoading] = useState(false);
@@ -45,8 +45,9 @@ const NavigationSection = ({ onhandleSurahNumber }) => {
   }
   //-------------------------------------------------------
   // Logic to display the particular verses when selecting a Chapter
-  function handleChapterClick(number) {
+  function handleChapterClick(number, arabicName) {
     onhandleSurahNumber(number);
+    onArabicNameChange(arabicName);
   }
 
   return (
@@ -77,7 +78,7 @@ const NavigationSection = ({ onhandleSurahNumber }) => {
               borderRadius: 1,
               backgroundColor: themeMode.surahButtonBgColor,
             }}
-            onClick={() => handleChapterClick(item.chapter)}
+            onClick={() => handleChapterClick(item.chapter, item.arabicName)}
           >
             <Box
               sx={{

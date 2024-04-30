@@ -4,6 +4,8 @@ import BookmarkIcon from "@mui/icons-material/Bookmark";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import EditNoteIcon from "@mui/icons-material/EditNote";
+import SettingsIcon from '@mui/icons-material/Settings';
+import TuneIcon from '@mui/icons-material/Tune';
 import React from "react";
 import { useState, useEffect } from "react";
 import { themeMode } from "../../../pages/Root";
@@ -13,6 +15,7 @@ const VERSE_URL =
 
 const DisplayQuranSection = ({
   surahNumber,
+  arabicName,
   onOpenPreferenceMenu,
   preferences,
 }) => {
@@ -138,12 +141,33 @@ const DisplayQuranSection = ({
   return (
     <>
       <Box my={2}>
-        <Typography
-          sx={{ textAlign: "center", color: themeMode.surahHeadingColor }}
-          variant="h3"
-        >
-          {/*  */}
-        </Typography>
+        <Grid container>
+          <Grid item xs={3.5}>
+            <Button
+              className="remove-focus-outline"
+              sx={{ color: themeMode.displayQuranIconColor }}
+              onClick={onOpenPreferenceMenu}
+            >
+              <TuneIcon />
+            </Button>
+            <br />
+            <Typography pl={2.5}
+              variant="body1" sx={{color:'grey', fontSize:'12px'}}>
+                Translation: {preferences.translationLanguage || 'en'} &ensp;
+                Author: {preferences.author || 'sahih'} &ensp;
+                Style: {preferences.textStyle || 'simple'}
+              </Typography>
+          </Grid>
+
+          <Grid item xs={8.5}>
+            <Typography
+              sx={{ textAlign: "center", color: themeMode.surahHeadingColor }}
+              variant="h3"
+            >
+              {arabicName || "الفاتحة"}
+            </Typography>
+          </Grid>
+        </Grid>
         {quranData.data
           .sort((a, b) => a.verse - b.verse)
           .map((item, index) => (
@@ -151,13 +175,6 @@ const DisplayQuranSection = ({
               <Grid container px={2} my={2} sx={{}}>
                 <Grid item xs={2}>
                   <Stack sx={{ width: 100 }} spacing={1}>
-                    <Button
-                      className="remove-focus-outline"
-                      sx={{ color: themeMode.displayQuranIconColor }}
-                      onClick={onOpenPreferenceMenu}
-                    >
-                      <EditNoteIcon />
-                    </Button>
                     <Button
                       className="remove-focus-outline"
                       sx={{ color: themeMode.displayQuranIconColor }}
@@ -181,36 +198,47 @@ const DisplayQuranSection = ({
                 </Grid>
 
                 <Grid item xs={10} py={5}>
-                  <Stack spacing={4}>
-                    <Typography
-                      variant="h4"
-                      sx={{
-                        textAlign: "right",
-                        color: themeMode.surahVersesColor,
-                        fontWeight: "bold",
-                      }}
-                    >
-                      {item.data.text}
-                      <span
-                        style={{
-                          fontSize: "10px",
-                          padding: "7px 10px",
-                          backgroundColor: themeMode.versesTerminatorColor,
-                          borderRadius: "30px",
-                          borderColor: "black",
+                  {/* <Stack spacing={4}> */}
+                  <Grid container>
+                    {/* Translation */}
+                    <Grid item xs={6} pr={2}>
+                      <Typography
+                        variant="body1"
+                        align="justify"
+                        sx={{ color: themeMode.translationColor }}
+                      >
+                        {item.data.translation}
+                      </Typography>
+                    </Grid>
+                    {/*Translation End */}
+                    {/* Verses */}
+                    <Grid item xs={6}>
+                      <Typography
+                        variant="h4"
+                        sx={{
+                          textAlign: "right",
+                          color: themeMode.surahVersesColor,
+                          fontWeight: "bold",
                         }}
                       >
-                        {item.verse}
-                      </span>
-                    </Typography>
-
-                    <Typography
-                      variant="body1"
-                      sx={{ color: themeMode.translationColor }}
-                    >
-                      {item.data.translation}
-                    </Typography>
-                  </Stack>
+                        {item.data.text}
+                        <span
+                          style={{
+                            fontSize: "10px",
+                            padding: "7px 10px",
+                            backgroundColor: themeMode.versesTerminatorColor,
+                            color: "white",
+                            borderRadius: "30px",
+                            borderColor: "black",
+                          }}
+                        >
+                          {item.verse}
+                        </span>
+                      </Typography>
+                      {/* </Stack> */}
+                    </Grid>{" "}
+                    {/*Verses End */}
+                  </Grid>
                 </Grid>
               </Grid>
               <Divider
