@@ -40,12 +40,12 @@ export default function SignUp({ open, onClose }) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const userData = {
-      userName: formData.get("userName"),
+      username: formData.get("userName"),
       email: formData.get("email"),
       password: formData.get("password"),
     };
     console.log({
-      userName: formData.get("userName"),
+      username: formData.get("userName"),
       email: formData.get("email"),
       password: formData.get("password"),
     });
