@@ -46,7 +46,7 @@ function Home() {
     >
       <Root>
         {/* <NavBar onClick={handleThemeChange} /> */}
-        <Heading variant="h1">Make Self-Purification by Reading Quran</Heading>
+        <Heading variant="h1">Quran For All</Heading>
         <IntroSection />
       </Root>
       <SlantedDiv />
