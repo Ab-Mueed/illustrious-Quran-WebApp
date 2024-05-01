@@ -4,13 +4,12 @@ import BookmarkIcon from "@mui/icons-material/Bookmark";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import EditNoteIcon from "@mui/icons-material/EditNote";
-import SettingsIcon from '@mui/icons-material/Settings';
-import TuneIcon from '@mui/icons-material/Tune';
+import SettingsIcon from "@mui/icons-material/Settings";
+import TuneIcon from "@mui/icons-material/Tune";
 import React from "react";
 import { useState, useEffect } from "react";
 import { themeMode } from "../../../pages/Root";
-import CircularProgress from '@mui/material/CircularProgress';
-
+import CircularProgress from "@mui/material/CircularProgress";
 
 const VERSE_URL =
   "https://illustriousquran-backend.onrender.com/v1/scripture/quraan/get";
@@ -131,7 +130,12 @@ const DisplayQuranSection = ({
 
   if (isloading) {
     return (
-      <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        height="100vh"
+      >
         <CircularProgress />
       </Box>
     );
@@ -153,12 +157,15 @@ const DisplayQuranSection = ({
               <TuneIcon />
             </Button>
             <br />
-            <Typography pl={2.5}
-              variant="body1" sx={{color:'grey', fontSize:'12px'}}>
-                Translation: {preferences.translationLanguage || 'en'} &ensp;
-                Author: {preferences.author || 'sahih'} &ensp;
-                Style: {preferences.textStyle || 'simple'}
-              </Typography>
+            <Typography
+              pl={2.5}
+              variant="body1"
+              sx={{ color: "grey", fontSize: "12px" }}
+            >
+              Translation: {preferences.translationLanguage || "en"} &ensp;
+              Author: {preferences.author || "sahih"} &ensp; Style:{" "}
+              {preferences.textStyle || "simple"}
+            </Typography>
           </Grid>
 
           <Grid item xs={8.5}>

@@ -8,6 +8,9 @@ import DisplayQuranSection from "../components/QuranComponents/DisplayQuranSecti
 import PreferenceMenu from "../components/PreferenceMenu/PreferenceMenu";
 import { useState, useEffect } from "react";
 import { themeMode } from "./Root";
+import Alert from "@mui/material/Alert";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 
 function Quran({ props }) {
   const [selectedSurah, setSelectedSurah] = useState("1");
@@ -16,6 +19,8 @@ function Quran({ props }) {
   const [author, setAuthors] = useState([]);
   const [textStyles, setTextStyles] = useState([]);
   const [arabicName, setArabicName] = useState("");
+  const [showSnackbar, setShowSnackbar] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
 
   const [preferences, setPreferences] = useState({
     translationLanguage: "",
@@ -84,8 +89,16 @@ function Quran({ props }) {
   const handleSavePreference = (settings) => {
     // Implement logic to update Qur'an page with selected preferences
     setPreferences(settings);
-    alert("Preferences Updated:", settings);
+    setAlertMessage("Preferences Updated");
+    setShowSnackbar(true);
+    console.log("Setting showAlert to true");
+
     handleClosePreference();
+
+    // setTimeout(() => {
+    //   console.log("Hiding alert after timeout");
+    //   setShowAlert(false);
+    // }, 5000);
   };
 
   // Callback function to handle translation language change
@@ -95,6 +108,13 @@ function Quran({ props }) {
 
   const handleArabicName = (arabicName) => {
     setArabicName(arabicName);
+  };
+
+  const handleCloseSnackbar = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setShowSnackbar(false);
   };
 
   return (
@@ -113,7 +133,7 @@ function Quran({ props }) {
               surahNumber={selectedSurah}
               onOpenPreferenceMenu={handleOpenPreference}
               preferences={preferences}
-              arabicName = {arabicName}
+              arabicName={arabicName}
             />
           </Grid>
         </Grid>
@@ -127,6 +147,15 @@ function Quran({ props }) {
             onTranslationLanguageChange={handleTranslationLanguageChange}
           />
         )}
+        <Snackbar
+          open={showSnackbar}
+          autoHideDuration={6000}
+          onClose={handleCloseSnackbar}
+        >
+          <Alert onClose={handleCloseSnackbar} severity="success">
+            {alertMessage}
+          </Alert>
+        </Snackbar>
       </Box>
     </>
   );
