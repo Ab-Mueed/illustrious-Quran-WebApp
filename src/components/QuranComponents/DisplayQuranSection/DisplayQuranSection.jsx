@@ -169,6 +169,8 @@ const DisplayQuranSection = ({
 
   // ----------------------------------------------
 
+
+
   if (isloading) {
     return (
       <Box
@@ -184,6 +186,9 @@ const DisplayQuranSection = ({
   if (!quranData || !quranData.data) {
     return <div>No data found</div>;
   }
+
+  console.log("Surah Number: ", surahNumber)
+
 
   return (
     <>
@@ -225,7 +230,7 @@ const DisplayQuranSection = ({
               sx={{ textAlign: "center", color: themeMode.surahHeadingColor }}
               variant="h3"
             >
-              {  arabicName === 'الفاتحة'? "": "بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ" }
+              {  surahNumber === '1' ? "": "بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ" }
             </Typography>
           </Grid>
         </Grid>
@@ -282,7 +287,7 @@ const DisplayQuranSection = ({
                           fontWeight: "bold",
                         }}
                       >
-                        {arabicName === 'الفاتحة' ? item.data.text : item.data.text.replace('بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ', "")}
+                        {surahNumber === '1' ? item.data.text : item.data.text.replace('بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ', "")}
                         <span
                           style={{
                             fontSize: "10px",
