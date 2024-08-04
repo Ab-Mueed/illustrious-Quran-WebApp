@@ -6,7 +6,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 const tempArray = [1, 2, 3, 4, 5, 6];
 const URL =
-  "https://illustriousquran-backend.onrender.com/v1/scripture/chapterMetaData/all";
+  "https://illustriousquran-backend-1.onrender.com/v1/scripture/chapterMetaData/all";
 
 export let surahNumber;
 

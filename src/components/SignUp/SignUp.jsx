@@ -52,7 +52,7 @@ export default function SignUp({ open, onClose, handleToggleView }) {
 
     try {
       const response = await fetch(
-        "https://illustriousquran-backend.onrender.com/v1/scripture/user/new",
+        "https://illustriousquran-backend-1.onrender.com/v1/scripture/user/new",
         {
           method: "POST",
           headers: {

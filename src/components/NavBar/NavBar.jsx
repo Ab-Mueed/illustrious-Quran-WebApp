@@ -13,11 +13,15 @@ import MenuItem from "@mui/material/MenuItem";
 import { useState, useEffect } from "react";
 import SignUp from "../SignUp/SignUp.jsx";
 import SignIn from "../SignIn/SignIn.jsx";
+import { useLocation} from "react-router-dom";
 
 export default function NavBar({ onClick }) {
   const [openSignUp, setOpenSignUp] = useState(false);
   const [showSignIn, setShowSignIn] = useState(false);
   const [loggedInEmail, setLoggedInEmail] = useState(null);
+
+  const location = useLocation();
+  const isQuranPage = location.pathname === "/Quran";
 
   useEffect(() => {
     // Check if loggedInEmail is set, then update the button label
@@ -56,7 +60,12 @@ export default function NavBar({ onClick }) {
   console.log("Sign In: ", showSignIn);
 
   return (
-    <Root>
+    <Root
+      sx={{
+        position: isQuranPage ? "relative" : "relative",
+        width:'100%'
+      }}
+    >
       <FirstBox sx={{ display: "flex" }}>
         <img
           src={logo}

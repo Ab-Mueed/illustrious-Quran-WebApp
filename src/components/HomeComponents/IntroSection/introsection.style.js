@@ -17,11 +17,11 @@ export const Root = styled(Box)(({ theme }) => ({
 
 export const FirstImageBox = styled(Box)(({ theme }) => ({
   borderRadius: 6,
-  width: "50%",
+  width: "100%",
   [theme.breakpoints.down("sm")]: {
     width: "95%",
     height: "50vh",
-    margin: "auto",
+    margin: "",
   },
   [theme.breakpoints.up("sm")]: {},
   [theme.breakpoints.up("md")]: {borderRadius:3, height:370, width:350},
@@ -32,7 +32,7 @@ export const SecondImageBox = styled(Box)(({ theme }) => ({
   borderRadius: 6,
   width: "50%",
   [theme.breakpoints.down("sm")]: { display: "none" },
-  [theme.breakpoints.up("sm")]: {},
+  [theme.breakpoints.down("md")]: {display:'none'},
   [theme.breakpoints.up("md")]: {borderRadius:3, height:370, width:350},
   [theme.breakpoints.up("lg")]: {},
 }));

@@ -9,13 +9,14 @@ import Quran from "../../../assets/Quran.jpg";
 import Quran2 from "../../../assets/Quran2.jpg";
 import {themeMode} from '../../../pages/Root.jsx';
 import { FirstImageBox, Root, SecondImageBox,FirstBox,FirstButton,SecondButton } from "./introsection.style";
+import { red } from "@mui/material/colors";
 
 export default function IntroSection() {
   return (
-    <Root>
+    <Root className="flex sm:flex-col lg:flex-row ">
       <FirstImageBox
         component="img"
-        sx={{
+        sx={{ backgroundColor:'green'
         }}
         alt="Quran Image"
         src={Quran}
@@ -27,8 +28,8 @@ export default function IntroSection() {
         alt="Quran Image"
         src={Quran2}
       />
-      <FirstBox>
-        <Typography variant="body1" sx={{ color: themeMode.paraColor  }}>
+      <FirstBox className="w-full lg:w-1/2 flex  items-start lg:mt-0 "> 
+        <Typography variant="body1" sx={{ color: themeMode.paraColor  }} className="text-left">
           Welcome to our Quran Reading platform, where you can embark on a
           transformative journey through the sacred text of Islam.
         </Typography>
@@ -51,11 +52,11 @@ export default function IntroSection() {
           Quran Audio
         </SecondButton>
 
-        <Box sx={{ color: "#12372A", display: "flex", direction: "row" }}>
+        <Box sx={{ color: "#12372A", display: "flex", direction: "row" }}  className="mt-2">
           <Rating name="full-rating" defaultValue={5} readOnly />
-          <Typography component="legend" sx={{color:themeMode.paraColor}}>4.5k</Typography>
+          <Typography component="legend" sx={{color:themeMode.paraColor}}  className="ml-2">4.5k</Typography>
         </Box>
-        <Typography variant="body1" sx={{ color: themeMode.paraColor }}>
+        <Typography variant="body1" sx={{ color: themeMode.paraColor }} className="mt-2 text-left">
           100K+ ratings on Google
         </Typography>
       </FirstBox>

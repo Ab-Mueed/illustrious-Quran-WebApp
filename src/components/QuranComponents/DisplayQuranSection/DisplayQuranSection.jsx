@@ -5,14 +5,17 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import SettingsIcon from "@mui/icons-material/Settings";
+import SummarizeIcon from "@mui/icons-material/Summarize";
 import TuneIcon from "@mui/icons-material/Tune";
+import SummaryWindow from "../SummaryWindow/SummaryWindow";
 import React from "react";
 import { useState, useEffect } from "react";
 import { themeMode } from "../../../pages/Root";
 import CircularProgress from "@mui/material/CircularProgress";
+import axios from "axios";
 
 const VERSE_URL =
-  "https://illustriousquran-backend.onrender.com/v1/scripture/quraan/get";
+  "https://illustriousquran-backend-1.onrender.com/v1/scripture/quraan/get";
 
 const DisplayQuranSection = ({
   surahNumber,
@@ -27,6 +30,11 @@ const DisplayQuranSection = ({
   const [isPlaying, setPlaying] = useState(false);
 
   const [isloading, setIsLoading] = useState(false);
+
+  // AI-Model For Summary
+  const [summary, setSummary] = useState(""); // New state for summary text
+  const [showSummaryWindow, setShowSummaryWindow] = useState(false);
+
   //   console.log(surahNumber);
   //......................................................................
 
@@ -54,11 +62,44 @@ const DisplayQuranSection = ({
     fetchData();
   }, [surahNumber, preferences]);
 
+  // Function to summarize Quranic translation
+  const summarizeText = async () => {
+    if (!quranData || !quranData.data) return;
+
+    const translationText = quranData.data
+      .map((item) => item.data.translation)
+      .join(" ");
+    console.log("Starting to summarize");
+    console.log(translationText);
+
+    try {
+      const response = await axios.post(
+        "https://illustriousquran-backend-1.onrender.com/summarize",
+        {
+          text: translationText,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      setSummary(response.data.summary);
+      setShowSummaryWindow(true);
+    } catch (error) {
+      console.error("Error fetching summary:", error);
+    }
+  };
+
+  const handleCloseSummaryWindow = () => {
+    setShowSummaryWindow(false); // Hide the SummaryWindow
+  };
+
   // useEffect(() => {
   //   try {
   //     setIsLoading(true);
   //     const fetchVerse = async () => {
-  //       const response = await fetch(`${VERSE_URL}$?language=${preferences.translationLanguage}`);
+  //       const response = await fetch(${VERSE_URL}$?language=${preferences.translationLanguage});
   //       const verse = await response.json();
   //       setVerse(verse);
   //     };
@@ -74,7 +115,7 @@ const DisplayQuranSection = ({
   //     setIsLoading(true);
   //     const fetchTranslation = async () => {
   //       const response = await fetch(
-  //         `${VERSE_URL}${surahNumber}/editions/en.asad`
+  //         ${VERSE_URL}${surahNumber}/editions/en.asad
   //       );
   //       const translation = await response.json();
   //       setTranslation(translation);
@@ -93,7 +134,7 @@ const DisplayQuranSection = ({
   //   try {
   //     setIsLoading(true);
   //     const fetchAudio = async () => {
-  //       const response = await fetch(`${VERSE_URL}${surahNumber}/ar.alafasy`);
+  //       const response = await fetch(${VERSE_URL}${surahNumber}/ar.alafasy);
   //       const inputAudio = await response.json();
   //       setAudio(inputAudio);
   //     };
@@ -156,6 +197,11 @@ const DisplayQuranSection = ({
             >
               <TuneIcon />
             </Button>
+
+            {/* Summarize Button */}
+            <Button onClick={summarizeText}>
+              <SummarizeIcon />
+            </Button>
             <br />
             <Typography
               pl={2.5}
@@ -174,6 +220,12 @@ const DisplayQuranSection = ({
               variant="h3"
             >
               {arabicName || "الفاتحة"}
+            </Typography>
+            <Typography
+              sx={{ textAlign: "center", color: themeMode.surahHeadingColor }}
+              variant="h3"
+            >
+              {  arabicName === 'الفاتحة'? "": "بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ" }
             </Typography>
           </Grid>
         </Grid>
@@ -230,7 +282,7 @@ const DisplayQuranSection = ({
                           fontWeight: "bold",
                         }}
                       >
-                        {item.data.text}
+                        {arabicName === 'الفاتحة' ? item.data.text : item.data.text.replace('بِسْمِ اللَّهِ الرَّحْمَـٰنِ الرَّحِيمِ', "")}
                         <span
                           style={{
                             fontSize: "10px",
@@ -257,6 +309,9 @@ const DisplayQuranSection = ({
             </>
           ))}
       </Box>
+      {showSummaryWindow && (
+        <SummaryWindow summary={summary} onClose={handleCloseSummaryWindow} />
+      )}
     </>
   );
 };

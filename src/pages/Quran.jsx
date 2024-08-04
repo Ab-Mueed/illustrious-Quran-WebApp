@@ -37,7 +37,7 @@ function Quran({ props }) {
   const fetchTranslations = async () => {
     try {
       const response = await fetch(
-        "https://illustriousquran-backend.onrender.com/v1/scripture/quraan/info/languages"
+        "https://illustriousquran-backend-1.onrender.com/v1/scripture/quraan/info/languages"
       );
       const data = await response.json();
       setTranslations(data);
@@ -51,7 +51,7 @@ function Quran({ props }) {
   const fetchAuthors = async (language) => {
     try {
       const response = await fetch(
-        `https://illustriousquran-backend.onrender.com/v1/scripture/quraan/info/authorsForLanguage?language=${language}`
+        `https://illustriousquran-backend-1.onrender.com/v1/scripture/quraan/info/authorsForLanguage?language=${language}`
       );
       const data = await response.json();
       setAuthors(data);
@@ -64,7 +64,7 @@ function Quran({ props }) {
   const fetchTextStyles = async () => {
     try {
       const response = await fetch(
-        "https://illustriousquran-backend.onrender.com/v1/scripture/quraan/info/arabicText"
+        "https://illustriousquran-backend-1.onrender.com/v1/scripture/quraan/info/arabicText"
       );
       const data = await response.json();
       setTextStyles(data);

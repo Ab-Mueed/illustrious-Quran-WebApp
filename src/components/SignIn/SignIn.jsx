@@ -50,7 +50,7 @@ export default function SignIn({ open, onClose, onLoginSuccess }) {
 
     try {
       const response = await fetch(
-        "https://illustriousquran-backend.onrender.com/v1/scripture/user/login",
+        "https://illustriousquran-backend-1.onrender.com/v1/scripture/user/login",
         {
           method: "POST",
           headers: {
